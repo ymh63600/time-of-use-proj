@@ -1,0 +1,3 @@
+[submodule "project_electricity"]
+	path = project_electricity
+	url = git@github.com:zglian/project_electricity.git
