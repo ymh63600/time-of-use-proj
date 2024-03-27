@@ -6,7 +6,7 @@ from config import Response
 from sqlalchemy.orm.session import Session
 from models import User, UpdatePassword, ForgetPassword
 from fastapi.responses import JSONResponse
-from jose import jwt
+import jwt
 from config import Config
 
 password_router = APIRouter()

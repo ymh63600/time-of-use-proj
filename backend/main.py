@@ -11,6 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from admin_router import admin_router
 from password_router import password_router
 from user_router import user_router
+from calculate import data_router
 
 origins=["http://localhost:3000"]
 #origins=["*"]
@@ -18,8 +19,8 @@ app = FastAPI()
 app.include_router(admin_router)
 app.include_router(password_router)
 app.include_router(user_router)
+app.include_router(data_router)
 app.add_middleware(CORSMiddleware,allow_origins=origins,allow_credentials=True,allow_methods=["*"],allow_headers=["*"])
-
 
 @app.get("/")
 def read_root():
@@ -66,6 +67,9 @@ async def get_jwt(username: str = Body(),
         {"username": username, "token": jwt_token,"is_Admin": admin},
         headers={"Authorization": "Bearer " + jwt_token}
     )
-    return response
+    return {"ok"}
     
 
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)    

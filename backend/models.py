@@ -1,4 +1,4 @@
-from sqlalchemy import Column
+from sqlalchemy import Column, PrimaryKeyConstraint
 from sqlalchemy.ext.declarative import declarative_base
 import sqlalchemy as sa
 from datetime import datetime
@@ -8,9 +8,12 @@ Base=declarative_base()
 
 class Electricity_Data(Base):
     __tablename__='data_time'
-    device_uuid = Column(sa.VARCHAR, primary_key=True)
+    device_uuid = Column(sa.VARCHAR, primary_key=False)
     generated_time = Column(sa.types.DateTime, nullable=False)
     normal_usage = Column(sa.Float, nullable=True)
+    __table_args__ = (
+        PrimaryKeyConstraint('device_uuid', 'generated_time'),
+    )
 
 class User(Base):
     __tablename__='user_table'
