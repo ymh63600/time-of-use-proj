@@ -1,0 +1,115 @@
+.signup-successful-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #d5f8f4;
+}
+.signup-successful-image {
+  top: 25vh;
+  left: auto;
+  width: 14vh;
+  position: absolute;
+  object-fit: cover;
+}
+.signup-successful-text {
+  top: 52vh;
+  left: auto;
+  color: rgb(73, 104, 141);
+  position: absolute;
+  font-size: 3vh;
+  margin-top: 1vh;
+  font-weight: 50vh;
+}
+.signup-successful-button {
+  top: 67vh;
+  left: auto;
+  color: rgb(73, 104, 141);
+  width: 20vh;
+  height: 5vh;
+  z-index: 100;
+  position: absolute;
+  font-size: 2vh;
+  box-shadow: 5px 5px 10px 0px rgba(54, 173, 185, 0.51);
+  text-align: center;
+  margin-left: 10vh;
+  border-width: 0px;
+  margin-right: 10vh;
+  border-radius: 20px;
+}
+.signup-successful-button:hover {
+  box-shadow: 5px 5px 10px 0px #6ce5e8;
+}
+.signup-successful-button:active {
+  box-shadow: 5px 5px 10px 0px #00cadc;
+}
+.signup-successful-text06 {
+  top: 63vh;
+  left: auto;
+  color: #49688d;
+  position: absolute;
+  font-size: 2.2vh;
+}
+.signup-successful-text07 {
+  top: 41vh;
+  left: auto;
+  color: #49688d;
+  position: absolute;
+  font-size: 2.2vh;
+  margin-top: 2vh;
+  text-align: center;
+  font-weight: 40vh;
+  line-height: 3vh;
+  text-transform: capitalize;
+}
+.signup-successful-navbar-interactive {
+  top: 0;
+  left: auto;
+  width: 100%;
+  height: 9.3vh;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  padding-top: 3vh;
+  padding-left: 5vh;
+  padding-right: 5vh;
+  padding-bottom: 3vh;
+  justify-content: center;
+  background-color: var(--dl-color-gray-white);
+}
+.signup-successful-navlink {
+  left: 4vw;
+  color: #49688d;
+  z-index: 99;
+  position: absolute;
+  font-size: 2.2vh;
+  border-width: 0px;
+  text-decoration: none;
+}
+.signup-successful-image1 {
+  left: auto;
+  width: 20vh;
+  position: absolute;
+  object-fit: cover;
+}
+@media(max-width: 767px) {
+  .signup-successful-navbar-interactive {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+}
+@media(max-width: 479px) {
+  .signup-successful-navbar-interactive {
+    padding: var(--dl-space-space-unit);
+  }
+}
+@media(max-width: 475px) {
+  .signup-successful-text07 {
+    color: rgb(73, 104, 141);
+  }
+  .signup-successful-image1 {
+    width: 0;
+  }
+}

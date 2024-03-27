@@ -1,0 +1,429 @@
+.yongdian-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #d5f8f4;
+}
+.yongdian-container1 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  max-width: 1440px;
+  max-height: 1000px;
+  align-items: center;
+}
+.yongdian-container2 {
+  flex: 0 0 auto;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.yongdian-image {
+  top: 40vh;
+  right: auto;
+  width: 55vh;
+  z-index: 100;
+  position: absolute;
+  object-fit: cover;
+}
+.yongdian-textinput {
+  top: 27vh;
+  color: #49688d;
+  right: auto;
+  width: 20vh;
+  height: 4vh;
+  z-index: 100;
+  position: absolute;
+  font-size: 2vh;
+  box-shadow: rgba(54, 173, 185, 0.52) 5px 5px 10px 0px;
+  border-width: 0px;
+  margin-right: 40vh;
+  border-radius: 20px;
+}
+.yongdian-select {
+  top: 27vh;
+  right: auto;
+  width: 20vh;
+  height: 4vh;
+  z-index: 100;
+  position: absolute;
+  font-size: 2vh;
+  box-shadow: rgba(54, 173, 185, 0.52) 5px 5px 10px 0px;
+  margin-right: -38vh;
+  padding-left: 1vh;
+  border-radius: 20px;
+}
+.yongdian-image1 {
+  top: 18vh;
+  right: auto;
+  width: 60vh;
+  position: absolute;
+  object-fit: cover;
+}
+.yongdian-button {
+  top: 18.2vh;
+  right: auto;
+  width: 14vh;
+  height: 7vh;
+  z-index: 100;
+  position: absolute;
+  border-width: 0px;
+  margin-right: 42vh;
+  background-color: transparent;
+}
+.yongdian-button:focus {
+  border: none;
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button:hover {
+  border: none;
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button:active {
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button:disabled {
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button:focus-within {
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button:focus-visible {
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button1 {
+  top: 18.2vh;
+  right: auto;
+  width: 14vh;
+  height: 7vh;
+  z-index: 100;
+  position: absolute;
+  border-width: 0px;
+  margin-right: -16vh;
+  background-color: transparent;
+}
+.yongdian-button1:focus {
+  border: none;
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button1:hover {
+  border: none;
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button1:active {
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button1:disabled {
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button1:focus-within {
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button1:focus-visible {
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button2 {
+  top: 18.2vh;
+  right: auto;
+  width: 14vh;
+  height: 7vh;
+  z-index: 100;
+  position: absolute;
+  border-width: 0px;
+  margin-right: 13vh;
+  background-color: transparent;
+}
+.yongdian-button2:focus {
+  border: none;
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button2:hover {
+  border: none;
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button2:active {
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button2:disabled {
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button2:focus-within {
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button2:focus-visible {
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button3 {
+  top: 18.2vh;
+  right: auto;
+  width: 14vh;
+  height: 7vh;
+  z-index: 100;
+  position: absolute;
+  border-width: 0px;
+  margin-right: -45vh;
+  background-color: transparent;
+}
+.yongdian-button3:focus {
+  border: none;
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button3:hover {
+  border: none;
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button3:active {
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button3:disabled {
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button3:focus-within {
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-button3:focus-visible {
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.yongdian-container3 {
+  flex: 0 0 auto;
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  max-height: 1000px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.yongdian-textinput1 {
+  top: 32vh;
+  left: 55%;
+  color: #49688d;
+  width: 20vh;
+  height: 4vh;
+  z-index: 100;
+  position: absolute;
+  font-size: 2vh;
+  margin-left: 24vh;
+  border-width: 0px;
+}
+.yongdian-text16 {
+  top: 19.2vh;
+  left: 55%;
+  color: rgb(73, 104, 141);
+  position: absolute;
+  font-size: 2.8vh;
+  margin-left: 12.5vh;
+}
+.yongdian-image2 {
+  top: 25vh;
+  left: 55%;
+  width: 50vh;
+  z-index: ß1;
+  position: absolute;
+  object-fit: cover;
+  margin-left: 10vh;
+}
+.yongdian-text17 {
+  top: 63vh;
+  left: 55%;
+  color: rgb(73, 104, 141);
+  z-index: 100;
+  position: absolute;
+  font-size: 3vh;
+  font-family: "Comic Sans MS";
+  margin-left: 33vh;
+  letter-spacing: 1vh;
+}
+.yongdian-date-time {
+  top: 43vh;
+  left: 55%;
+  color: #49688d;
+  z-index: 100;
+  position: absolute;
+  font-size: 2.2vh;
+  margin-left: 28vh;
+}
+.yongdian-button4 {
+  top: 78vh;
+  left: 55%;
+  color: transparent;
+  display: flex;
+  position: absolute;
+  border-width: 0px;
+  flex-direction: row;
+  background-color: transparent;
+}
+.yongdian-navlink {
+  display: contents;
+}
+.yongdian-image3 {
+  left: 50%;
+  width: 20vh;
+  z-index: 100;
+  position: absolute;
+  object-fit: cover;
+  margin-left: 37vh;
+  text-decoration: none;
+}
+.yongdian-navbar-interactive {
+  top: 0;
+  left: auto;
+  width: 100%;
+  height: 9.3vh;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  padding-top: 3vh;
+  padding-left: 5vh;
+  padding-right: 5vh;
+  padding-bottom: 3vh;
+  justify-content: center;
+  background-color: var(--dl-color-gray-white);
+}
+.yongdian-image4 {
+  left: auto;
+  width: 20vh;
+  position: absolute;
+  object-fit: cover;
+}
+.yongdian-navlink1 {
+  z-index: 100;
+  margin-left: 82vw;
+  border-width: 0px;
+}
+.yongdian-image5 {
+  left: 0;
+  width: 10vh;
+  object-fit: cover;
+}
+.yongdian-navlink2 {
+  left: 4vw;
+  z-index: 100;
+  position: absolute;
+  border-width: 0px;
+}
+.yongdian-image6 {
+  width: 10vh;
+  object-fit: cover;
+}
+@media(max-width: 1000px) {
+  .yongdian-container {
+    align-items: center;
+  }
+  .yongdian-container1 {
+    display: contents;
+  }
+  .yongdian-container2 {
+    display: contents;
+  }
+  .yongdian-image {
+    top: 23vh;
+    width: 35vh;
+  }
+  .yongdian-textinput {
+    top: 18vh;
+    right: auto;
+    margin-right: 30vh;
+  }
+  .yongdian-select {
+    top: 18vh;
+    right: auto;
+    margin-right: -29vh;
+  }
+  .yongdian-image1 {
+    top: 10vh;
+    width: 50vh;
+  }
+  .yongdian-button {
+    top: 10vh;
+    width: 13vh;
+    height: 6vh;
+    margin-right: 35.5vh;
+  }
+  .yongdian-button1 {
+    top: 10vh;
+    width: 12vh;
+    height: 6vh;
+    margin-right: -13vh;
+  }
+  .yongdian-button2 {
+    top: 10vh;
+    width: 12vh;
+    height: 6vh;
+    margin-right: 10vh;
+  }
+  .yongdian-button3 {
+    top: 10vh;
+    width: 12vh;
+    height: 6vh;
+    margin-right: -38vh;
+  }
+  .yongdian-container3 {
+    display: contents;
+  }
+  .yongdian-textinput1 {
+    top: 59vh;
+    left: auto;
+    margin-left: 0px;
+  }
+  .yongdian-text16 {
+    top: 52vh;
+    left: auto;
+    font-size: 2vh;
+    margin-left: 0px;
+  }
+  .yongdian-image2 {
+    top: 55vh;
+    left: auto;
+    width: 35vh;
+    margin-left: 0;
+  }
+  .yongdian-text17 {
+    top: 81vh;
+    left: auto;
+    color: rgb(73, 104, 141);
+    font-size: 3vh;
+    font-family: Comic Sans MS;
+    margin-left: 3vh;
+    margin-right: 0;
+    letter-spacing: 1vh;
+  }
+  .yongdian-date-time {
+    top: 68vh;
+    left: auto;
+    margin-left: 0;
+  }
+  .yongdian-button4 {
+    top: 91vh;
+    left: auto;
+    margin-left: 4vh;
+  }
+  .yongdian-image3 {
+    left: auto;
+    width: 15vh;
+    margin: 0;
+  }
+  .yongdian-image4 {
+    width: 0;
+  }
+}
+@media(max-width: 767px) {
+  .yongdian-navbar-interactive {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+}
+@media(max-width: 479px) {
+  .yongdian-navbar-interactive {
+    padding: var(--dl-space-space-unit);
+  }
+}

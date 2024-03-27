@@ -1,0 +1,251 @@
+.ziding-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #d5f8f4;
+}
+.ziding-image {
+  top: 21vh;
+  right: auto;
+  width: 80vh;
+  z-index: 1;
+  position: absolute;
+  object-fit: cover;
+  margin-right: 20vh;
+}
+.ziding-image1 {
+  top: 56vh;
+  right: auto;
+  width: 80vh;
+  position: absolute;
+  object-fit: cover;
+  margin-right: 20vh;
+}
+.ziding-image2 {
+  top: 23vh;
+  right: auto;
+  width: 25vh;
+  z-index: 98;
+  position: absolute;
+  object-fit: cover;
+  margin-right: 57vh;
+}
+.ziding-button {
+  top: 32vh;
+  left: auto;
+  color: rgb(73, 104, 141);
+  width: 20vh;
+  height: 6vh;
+  z-index: 100;
+  position: absolute;
+  font-size: 2vh;
+  box-shadow: 5px 5px 10px 0px rgba(54, 173, 185, 0.51);
+  text-align: center;
+  margin-left: 85vh;
+  border-width: 0px;
+  border-radius: 20px;
+}
+.ziding-button:active {
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.ziding-text {
+  z-index: 100;
+}
+.ziding-button1 {
+  top: 67vh;
+  left: auto;
+  color: rgb(73, 104, 141);
+  width: 20vh;
+  height: 6vh;
+  z-index: 100;
+  position: absolute;
+  font-size: 2vh;
+  box-shadow: 5px 5px 10px 0px rgba(54, 173, 185, 0.51);
+  text-align: center;
+  margin-left: 85vh;
+  border-width: 0px;
+  border-radius: 20px;
+}
+.ziding-button1:active {
+  box-shadow: 5px 5px 10px 0px #36adb9;
+}
+.ziding-image3 {
+  top: 59vh;
+  right: auto;
+  width: 25vh;
+  z-index: 98;
+  position: absolute;
+  object-fit: cover;
+  margin-right: 56.5vh;
+}
+.ziding-text06 {
+  top: 68.5vh;
+  color: rgb(73, 104, 141);
+  right: auto;
+  z-index: 99;
+  position: absolute;
+  font-size: 5vh;
+  font-family: "Comic Sans MS";
+  margin-right: 56vh;
+  letter-spacing: 1vh;
+}
+.ziding-text07 {
+  top: 32.5vh;
+  color: rgb(73, 104, 141);
+  right: auto;
+  z-index: 99;
+  position: absolute;
+  font-size: 5vh;
+  font-family: "Comic Sans MS";
+  margin-right: 56vh;
+  letter-spacing: 1vh;
+}
+.ziding-image4 {
+  width: 0;
+  object-fit: cover;
+}
+.ziding-image5 {
+  width: 0px;
+  object-fit: cover;
+}
+.ziding-navbar-interactive {
+  top: 0;
+  left: auto;
+  width: 100%;
+  height: 9.3vh;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  padding-top: 3vh;
+  padding-left: 5vh;
+  padding-right: 5vh;
+  padding-bottom: 3vh;
+  justify-content: center;
+  background-color: var(--dl-color-gray-white);
+}
+.ziding-navlink {
+  left: 4vw;
+  color: #49688d;
+  z-index: 99;
+  position: absolute;
+  font-size: 2.2vh;
+  border-width: 0px;
+  text-decoration: none;
+}
+.ziding-image6 {
+  left: auto;
+  width: 20vh;
+  position: absolute;
+  object-fit: cover;
+}
+.ziding-textinput {
+  top: 31vh;
+  color: rgb(73, 104, 141);
+  right: auto;
+  width: 20vh;
+  z-index: 100;
+  position: absolute;
+  font-size: 4vh;
+  text-align: center;
+  border-width: 0px;
+  letter-spacing: 0.5vh;
+  background-color: transparent;
+}
+.ziding-textinput1 {
+  top: 66vh;
+  color: rgb(73, 104, 141);
+  right: auto;
+  width: 20vh;
+  z-index: 100;
+  position: absolute;
+  font-size: 4vh;
+  text-align: center;
+  border-width: 0px;
+  letter-spacing: 0.5vh;
+  background-color: transparent;
+}
+@media(max-width: 1000px) {
+  .ziding-image {
+    width: 0;
+  }
+  .ziding-image1 {
+    width: 0;
+  }
+  .ziding-image2 {
+    top: 19vh;
+    width: 16vh;
+    margin-left: 6vh;
+    margin-right: 0;
+  }
+  .ziding-button {
+    top: 48vh;
+    right: auto;
+    margin-left: 0;
+  }
+  .ziding-button1 {
+    top: 90vh;
+    position: absolute;
+    margin-left: 0;
+  }
+  .ziding-text03 {
+    z-index: 100;
+  }
+  .ziding-image3 {
+    top: 61vh;
+    width: 16vh;
+    margin-left: 6vh;
+    margin-right: 0;
+  }
+  .ziding-text06 {
+    top: 66.5vh;
+    right: auto;
+    font-size: 4.2vh;
+    margin-left: 7vh;
+    margin-right: 0;
+  }
+  .ziding-text07 {
+    top: 24.5vh;
+    right: auto;
+    font-size: 4.2vh;
+    margin-left: 7vh;
+    margin-right: 0;
+  }
+  .ziding-image4 {
+    top: 15vh;
+    right: auto;
+    width: 22vh;
+    z-index: 6;
+    position: absolute;
+  }
+  .ziding-image5 {
+    top: 57vh;
+    width: 22vh;
+    position: absolute;
+  }
+  .ziding-textinput {
+    top: 37vh;
+  }
+  .ziding-textinput1 {
+    top: 79vh;
+  }
+}
+@media(max-width: 767px) {
+  .ziding-navbar-interactive {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+}
+@media(max-width: 479px) {
+  .ziding-navbar-interactive {
+    padding: var(--dl-space-space-unit);
+  }
+}
+@media(max-width: 475px) {
+  .ziding-image6 {
+    width: 0;
+  }
+}
