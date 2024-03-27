@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from fastapi import HTTPException, status,Request
 from passlib.context import CryptContext
-from jose import jwt
+import jwt
 from config import Config
 from models import User
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
