@@ -13,140 +13,41 @@
   top: 0;
   left: auto;
   width: 100%;
-  height: 93px;
+  height: 9.3vh;
   display: flex;
   position: absolute;
   align-items: center;
-  padding-top: var(--dl-space-space-twounits);
-  padding-left: var(--dl-space-space-threeunits);
-  padding-right: var(--dl-space-space-threeunits);
-  padding-bottom: var(--dl-space-space-twounits);
+  padding-top: 3vh;
+  padding-left: 5vh;
+  padding-right: 5vh;
+  padding-bottom: 3vh;
   justify-content: center;
   background-color: var(--dl-color-gray-white);
 }
-.dianfei-desktop-menu {
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-}
-.dianfei-burger-menu {
-  display: none;
-}
-.dianfei-icon {
-  width: var(--dl-size-size-xsmall);
-  height: var(--dl-size-size-xsmall);
-}
-.dianfei-mobile-menu {
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100vh;
-  display: none;
-  padding: 32px;
-  z-index: 100;
+.dianfei-image {
+  left: auto;
+  width: 20vh;
   position: absolute;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: #fff;
-}
-.dianfei-nav {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-}
-.dianfei-top {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  margin-bottom: var(--dl-space-space-threeunits);
-  justify-content: space-between;
-}
-.dianfei-logo {
-  height: 2rem;
-}
-.dianfei-close-menu {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.dianfei-icon02 {
-  width: var(--dl-size-size-xsmall);
-  height: var(--dl-size-size-xsmall);
-}
-.dianfei-links {
-  flex: 0 0 auto;
-  display: flex;
-  align-self: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-}
-.dianfei-text {
-  margin-bottom: var(--dl-space-space-unit);
-}
-.dianfei-text01 {
-  margin-bottom: var(--dl-space-space-unit);
-}
-.dianfei-text02 {
-  margin-bottom: var(--dl-space-space-unit);
-}
-.dianfei-text03 {
-  margin-bottom: var(--dl-space-space-unit);
-}
-.dianfei-text04 {
-  margin-bottom: var(--dl-space-space-unit);
-}
-.dianfei-buttons {
-  display: flex;
-  margin-top: var(--dl-space-space-unit);
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.dianfei-login {
-  margin-right: var(--dl-space-space-twounits);
-}
-.dianfei-icon04 {
-  width: var(--dl-size-size-xsmall);
-  height: var(--dl-size-size-xsmall);
-  margin-right: var(--dl-space-space-twounits);
-}
-.dianfei-icon06 {
-  width: var(--dl-size-size-xsmall);
-  height: var(--dl-size-size-xsmall);
-  margin-right: var(--dl-space-space-twounits);
-}
-.dianfei-icon08 {
-  width: var(--dl-size-size-xsmall);
-  height: var(--dl-size-size-xsmall);
+  object-fit: cover;
 }
 .dianfei-navlink {
-  display: flex;
   z-index: 100;
+  margin-left: 82vw;
   border-width: 0px;
-  flex-direction: row;
-  text-decoration: none;
 }
-.dianfei-image {
-  width: 100px;
+.dianfei-image1 {
+  left: 0;
+  width: 10vh;
   object-fit: cover;
 }
 .dianfei-navlink1 {
-  left: 0;
-  display: flex;
+  left: 4vw;
+  z-index: 100;
   position: absolute;
-  margin-left: 50;
   border-width: 0px;
-  flex-direction: row;
-  text-decoration: none;
-}
-.dianfei-image1 {
-  width: 100px;
-  object-fit: cover;
 }
 .dianfei-image2 {
-  left: auto;
-  width: 200px;
-  position: absolute;
+  width: 10vh;
   object-fit: cover;
 }
 .dianfei-container1 {
@@ -154,10 +55,10 @@
   width: 100%;
   height: 100vh;
   display: flex;
+  position: relative;
   max-width: 1440px;
   max-height: 1000px;
   align-items: center;
-  position: relative;
   justify-content: center;
 }
 .dianfei-container2 {
@@ -172,12 +73,11 @@
   justify-content: center;
 }
 .dianfei-image3 {
-  top: 38%;
-  right: 8%;
-  width: 500px;
+  top: 38vh;
+  left: 10%;
+  width: 50vh;
   position: absolute;
   object-fit: cover;
-  transition: 0.3s;
 }
 .dianfei-image3:focus {
   box-shadow: 5px 5px 10px 0px #c1ff72;
@@ -192,12 +92,11 @@
   box-shadow: 5px 5px 10px 0px #c1ff72;
 }
 .dianfei-image4 {
-  top: 62%;
-  right: 8%;
-  width: 500px;
+  top: 62vh;
+  left: 10%;
+  width: 50vh;
   position: absolute;
   object-fit: cover;
-  transition: 0.3s;
 }
 .dianfei-image4:focus {
   box-shadow: 5px 5px 10px 0px #c1ff72;
@@ -212,12 +111,11 @@
   box-shadow: 5px 5px 10px 0px #c1ff72;
 }
 .dianfei-image5 {
-  top: 50%;
-  right: 8%;
-  width: 500px;
+  top: 50vh;
+  left: 10%;
+  width: 50vh;
   position: absolute;
   object-fit: cover;
-  transition: 0.3s;
 }
 .dianfei-image5:focus {
   box-shadow: 5px 5px 10px 0px #c1ff72;
@@ -231,88 +129,89 @@
 .dianfei-image5:focus-visible {
   box-shadow: 5px 5px 10px 0px #c1ff72;
 }
-.dianfei-text05 {
-  top: 41%;
+.dianfei-text {
+  top: 41vh;
+  left: 10%;
   color: rgb(73, 104, 141);
-  right: 8%;
+  z-index: 100;
   position: absolute;
-  font-size: 20px;
-  margin-right: 350px;
+  font-size: 2.2vh;
+  margin-left: 7vh;
 }
-.dianfei-text06 {
-  top: 52%;
+.dianfei-text01 {
+  top: 52vh;
+  left: 10%;
   color: rgb(73, 104, 141);
-  right: 8%;
+  z-index: 100;
   position: absolute;
-  font-size: 20px;
-  margin-right: 260px;
+  font-size: 2vh;
+  margin-left: 6vh;
+}
+.dianfei-text05 {
+  top: 64vh;
+  left: 10%;
+  color: rgb(73, 104, 141);
+  z-index: 100;
+  position: absolute;
+  font-size: 2vh;
+  margin-left: 5vh;
+}
+.dianfei-text09 {
+  top: 40vh;
+  left: 10%;
+  color: rgb(73, 104, 141);
+  z-index: 100;
+  position: absolute;
+  font-size: 3vh;
+  font-family: "Comic Sans MS";
+  margin-left: 35vh;
+  letter-spacing: 1vh;
 }
 .dianfei-text10 {
-  top: 64%;
+  top: 52vh;
+  left: 10%;
   color: rgb(73, 104, 141);
-  right: 8%;
+  z-index: 100;
   position: absolute;
-  font-size: 20px;
-  margin-right: 260px;
+  font-size: 3vh;
+  font-family: "Comic Sans MS";
+  margin-left: 36vh;
+  margin-right: 1.5vh;
+  letter-spacing: 1vh;
+}
+.dianfei-text13 {
+  top: 64vh;
+  left: 10%;
+  color: rgb(73, 104, 141);
+  z-index: 100;
+  position: absolute;
+  font-size: 3vh;
+  font-family: "Comic Sans MS";
+  margin-left: 35vh;
+  margin-right: 1.5vh;
+  letter-spacing: 1vh;
 }
 .dianfei-text14 {
-  top: 40%;
+  top: 30vh;
+  left: 10%;
   color: rgb(73, 104, 141);
-  right: 10%;
-  z-index: 5;
   position: absolute;
-  font-size: 30px;
-  font-family: "Comic Sans MS";
-  margin-right: 15px;
-  letter-spacing: 10px;
-}
-.dianfei-text15 {
-  top: 52%;
-  color: rgb(73, 104, 141);
-  right: 10%;
-  z-index: 5;
-  position: absolute;
-  font-size: 30px;
-  font-family: "Comic Sans MS";
-  margin-right: 15px;
-  letter-spacing: 10px;
-}
-.dianfei-text18 {
-  top: 64%;
-  color: rgb(73, 104, 141);
-  right: 10%;
-  z-index: 5;
-  position: absolute;
-  font-size: 30px;
-  font-family: "Comic Sans MS";
-  margin-right: 15px;
-  letter-spacing: 10px;
-}
-.dianfei-text19 {
-  top: 30%;
-  color: rgb(73, 104, 141);
-  right: 10%;
-  position: absolute;
-  font-size: 24px;
-  margin-right: 360px;
+  font-size: 2.6vh;
+  margin-left: 1vh;
 }
 .dianfei-button {
   color: transparent;
-  display: flex;
   border-width: 0px;
-  flex-direction: row;
   background-color: transparent;
 }
-.dianfei-navlink2 {
-  display: contents;
-}
 .dianfei-image6 {
-  top: 73%;
-  right: 10%;
-  width: 120px;
+  top: 73vh;
+  left: 10%;
+  width: 12vh;
+  z-index: 100;
   position: absolute;
   object-fit: cover;
-  text-decoration: none;
+  margin-left: 38vh;
 }
 .dianfei-container3 {
   flex: 0 0 auto;
@@ -320,48 +219,53 @@
   width: 50%;
   height: 100vh;
   display: flex;
+  z-index: 0;
   position: relative;
   align-items: center;
 }
 .dianfei-image7 {
-  top: 40%;
-  left: 5%;
-  width: 480px;
+  top: 40vh;
+  right: 15%;
+  width: 55vh;
+  z-index: 100;
   position: absolute;
   object-fit: cover;
 }
 .dianfei-textinput {
-  top: 27%;
-  left: 27%;
+  top: 27vh;
   color: #49688d;
-  width: 170px;
-  height: 50px;
+  right: 15%;
+  width: 25vh;
+  height: 5vh;
+  z-index: 100;
   position: absolute;
+  font-size: 2vh;
   box-shadow: rgba(54, 173, 185, 0.52) 5px 5px 10px 0px;
   border-width: 0px;
   border-radius: 12px;
 }
 .dianfei-select {
-  top: 20%;
-  left: 27%;
-  width: 170px;
-  height: 50px;
+  top: 20vh;
+  right: 15%;
+  width: 25vh;
+  height: 5vh;
   z-index: 100;
   position: absolute;
-  font-size: 18px;
+  font-size: 2vh;
   box-shadow: rgba(54, 173, 185, 0.52) 5px 5px 10px 0px;
-  padding-left: 10px;
+  padding-left: 2vh;
   border-radius: 12px;
 }
-.dianfei-text22 {
-  top: 21%;
-  left: 6%;
+.dianfei-text17 {
+  top: 21vh;
   color: rgb(73, 104, 141);
+  right: 15%;
   position: absolute;
-  font-size: 24px;
+  font-size: 2.4vh;
+  margin-right: 28vh;
 }
-@media(max-width: 1089px) {
-  .dianfei-image2 {
+@media(max-width: 1000px) {
+  .dianfei-image {
     width: 0;
   }
   .dianfei-container1 {
@@ -371,96 +275,101 @@
     display: contents;
   }
   .dianfei-image3 {
-    top: 60%;
-    right: auto;
-    width: 450px;
+    top: 60vh;
+    left: auto;
+    width: 45vh;
     position: absolute;
   }
   .dianfei-image4 {
-    top: 80%;
-    right: auto;
-    width: 450px;
+    top: 80vh;
+    left: auto;
+    width: 45vh;
     position: absolute;
   }
   .dianfei-image5 {
-    top: 70%;
-    right: auto;
-    width: 450px;
+    top: 70vh;
+    left: auto;
+    width: 45vh;
     position: absolute;
+  }
+  .dianfei-text {
+    top: 63vh;
+    left: auto;
+    margin: 0;
+    font-size: 2vh;
+    margin-right: 25vh;
+    animation-play-state: 25vh;
+  }
+  .dianfei-text01 {
+    top: 72vh;
+    left: auto;
+    position: absolute;
+    font-size: 1.8vh;
+    margin-right: 25vh;
   }
   .dianfei-text05 {
-    top: 63%;
-    right: auto;
-    margin: 0;
-    z-index: 5;
-    font-size: 18px;
-    margin-right: 250px;
-  }
-  .dianfei-text06 {
-    top: 72%;
-    right: auto;
+    top: 82vh;
+    left: auto;
     position: absolute;
-    font-size: 18px;
-    margin-right: 180px;
+    font-size: 1.8vh;
+    margin-right: 25vh;
+  }
+  .dianfei-text09 {
+    top: 62vh;
+    left: 50%;
+    position: absolute;
+    margin-left: 10vh;
   }
   .dianfei-text10 {
-    top: 82%;
-    right: auto;
+    top: 72vh;
+    left: 50%;
     position: absolute;
-    font-size: 18px;
-    margin-right: 180px;
+    margin-left: 10vh;
+  }
+  .dianfei-text13 {
+    top: 82vh;
+    left: 50%;
+    position: absolute;
+    margin-left: 10vh;
   }
   .dianfei-text14 {
-    top: 62%;
-    left: 50%;
-    position: absolute;
-    margin-left: 100px;
-  }
-  .dianfei-text15 {
-    top: 72%;
-    left: 50%;
-    position: absolute;
-    margin-left: 100px;
-  }
-  .dianfei-text18 {
-    top: 82%;
-    left: 50%;
-    position: absolute;
-    margin-left: 100px;
-  }
-  .dianfei-text19 {
-    top: 56%;
-    right: auto;
-    margin-right: 0px;
+    top: 56vh;
+    left: auto;
+    margin-right: 32vh;
   }
   .dianfei-button {
-    top: 88%;
+    top: 17%;
     right: auto;
     position: absolute;
-    margin-left: 400;
+    margin-left: 40vh;
+  }
+  .dianfei-image6 {
+    left: auto;
+    margin: 0;
+    margin-right: 8vh;
   }
   .dianfei-container3 {
     display: contents;
   }
   .dianfei-image7 {
-    top: 25%;
-    left: auto;
-    width: 350px;
+    top: 25vh;
+    right: auto;
+    width: 35vh;
   }
   .dianfei-textinput {
-    top: 17%;
-    left: auto;
-    margin-left: 200px;
+    top: 17vh;
+    right: auto;
+    margin-left: 20vh;
   }
   .dianfei-select {
     top: 11%;
-    left: auto;
-    margin-left: 200px;
+    right: auto;
+    margin-left: 20vh;
   }
-  .dianfei-text22 {
-    top: 12%;
-    left: auto;
-    margin-right: 250px;
+  .dianfei-text17 {
+    top: 12vh;
+    right: auto;
+    margin-right: 25vh;
   }
 }
 @media(max-width: 767px) {
@@ -468,39 +377,9 @@
     padding-left: var(--dl-space-space-twounits);
     padding-right: var(--dl-space-space-twounits);
   }
-  .dianfei-desktop-menu {
-    display: none;
-  }
-  .dianfei-burger-menu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .dianfei-text {
-    margin-bottom: var(--dl-space-space-unit);
-  }
-  .dianfei-text01 {
-    margin-left: 0;
-    margin-bottom: var(--dl-space-space-unit);
-  }
-  .dianfei-text02 {
-    margin-left: 0;
-    margin-bottom: var(--dl-space-space-unit);
-  }
-  .dianfei-text03 {
-    margin-left: 0;
-    margin-bottom: var(--dl-space-space-unit);
-  }
-  .dianfei-text04 {
-    margin-left: 0;
-    margin-bottom: var(--dl-space-space-unit);
-  }
 }
 @media(max-width: 479px) {
   .dianfei-navbar-interactive {
     padding: var(--dl-space-space-unit);
-  }
-  .dianfei-mobile-menu {
-    padding: 16px;
   }
 }

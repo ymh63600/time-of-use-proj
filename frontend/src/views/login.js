@@ -4,8 +4,8 @@ import axios from "axios"
 import { Helmet } from 'react-helmet'
 import './login.css'
 import {toast} from "react-toastify";
+
 const Login = (props) => {
-  
   axios.defaults.baseURL = 'http://localhost:8000'
   //axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
   const history = useHistory();
@@ -44,7 +44,6 @@ const Login = (props) => {
     })
   };
   return (
-    <React.Fragment>
     <div className="login-container">
       <Helmet>
         <title>electricity</title>
@@ -53,33 +52,28 @@ const Login = (props) => {
       <div className="login-container1">
         <img
           alt="image"
-          src="/frontend%20web-1500h.png"
+          src="/frontend%20web-1500w.png"
           className="login-image"
         />
         <h1 className="login-text header">電力App</h1>
         <form onSubmit={onSubmitHandler}>
-          <div>
-            <input
-              type="text"
-              placeholder="email"
-              className="login-textinput input"
-              onChange={(event)=>{onChangeForm("username",event)}}
-            />
-            <input
-              type="password"
-              placeholder="password"
-              className="login-input input"
-              onChange={(event)=>{onChangeForm("password",event)}}
-            />
-          </div>
-          
-          <div>
-            <button type="submit" className="login-navlink button">
+        <input
+          type="password"
+          placeholder="password"
+          className="login-input input"
+          onChange={(event)=>{onChangeForm("password",event)}}
+        />
+        <input
+          type="text"
+          placeholder="email"
+          className="login-textinput input"
+          onChange={(event)=>{onChangeForm("username",event)}}
+        />
+        <button type="submit" className="login-navlink button">
               Log in
-            </button>  
-          </div>      
-              
+        </button> 
         </form>
+        
         <Link to="/create" className="login-navlink1 button">
           <span>
             <span>Register</span>
@@ -90,10 +84,8 @@ const Login = (props) => {
           Forgot Password
         </Link>
         
-        
       </div>
     </div>
-    </React.Fragment>
   )
 }
 

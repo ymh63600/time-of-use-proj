@@ -24,6 +24,7 @@ import ChangePassword from './views/change-password'
 import Login from './views/login'
 import Home from './views/home'
 import NotFound from './views/not-found'
+import DeleteAccount from './views/delete-account'
 import {ToastContainer} from "react-toastify";
 import "react-toastify/ReactToastify.min.css";
 
@@ -46,6 +47,7 @@ const App = () => {
         <Route component={Profile} exact path="/profile" />
         <Route component={ChangePassword} exact path="/change-password" />
         <Route component={Login} exact path="/" />
+        <Route component={DeleteAccount} exact path="/delete-account" />
         <Route component={Home} exact path="/home" />
         <Route component={NotFound} path="**" />
         <Redirect to="**" />
