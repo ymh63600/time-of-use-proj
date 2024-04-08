@@ -1,12 +1,28 @@
-import React from 'react'
+import React, {useEffect,useState} from 'react'
 import { Link } from 'react-router-dom'
-
+import axios from "axios"
 import { DateTimePrimitive } from '@teleporthq/react-components'
 import { Helmet } from 'react-helmet'
-
+import {toast} from "react-toastify";
 import './home.css'
 
 const Home = (props) => {
+  axios.defaults.baseURL = 'http://localhost:8000';
+  const [usage,setUsage]=useState({})
+  useEffect(()=>{
+    const token=localStorage.getItem("auth_token")
+    axios.get("/electricity/today/",{
+        headers:{Authorization:token}
+    }).then((response)=>{
+        console.log(response)
+        setUsage(response.data)
+        toast.success(response.data.detail)
+    }).catch((error)=>{
+        console.log(error.response.data.detail)
+        toast.error(error.response.data.detail);
+    })
+  },[])
+  const now = new Date();
   return (
     <div className="home-container">
       <Helmet>
@@ -36,13 +52,13 @@ const Home = (props) => {
           <img alt="image" src="/home1-1500w.png" className="home-image2" />
           <span className="home-date-time">
             <DateTimePrimitive
-              format="MM.D.YYYY h:mm A"
-              date="Mar 12 2024 22:52:51 GMT+0800"
+              format="YYYY.MM.DD hh:mm A"
+              date={now}
             ></DateTimePrimitive>
           </span>
           <span className="home-text">今日用電量</span>
           <span className="home-text1">
-            <span>12.50</span>
+            <span>{parseFloat(usage.usage).toFixed(2)}</span>
             <br></br>
           </span>
           <img alt="image" src="/home2-1500h.png" className="home-image3" />

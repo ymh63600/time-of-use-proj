@@ -1,12 +1,43 @@
-import React from 'react'
+import React, {useEffect,useState} from 'react'
 import { Link } from 'react-router-dom'
-
+import axios from "axios"
 import { DateTimePrimitive } from '@teleporthq/react-components'
 import { Helmet } from 'react-helmet'
-
+import {toast} from "react-toastify";
 import './yongdian.css'
 
 const Yongdian = (props) => {
+  axios.defaults.baseURL = 'http://localhost:8000';
+  const [usage,setUsage]=useState({})
+  const [rank,setRank]=useState({})
+  useEffect(()=>{
+    const token=localStorage.getItem("auth_token")
+    axios.get("/electricity/lastmonth/",{
+        headers:{Authorization:token}
+    }).then((response)=>{
+        console.log(response)
+        setUsage(response.data)
+        toast.success(response.data.detail)
+    }).catch((error)=>{
+        console.log(error.response.data.detail)
+        toast.error(error.response.data.detail);
+    })
+  },[])
+  useEffect(()=>{
+    const token=localStorage.getItem("auth_token")
+    axios.get("/electricity/compare/",{
+        headers:{Authorization:token}
+    }).then((response)=>{
+        console.log(response)
+        setRank(response.data)
+        toast.success(response.data.detail)
+    }).catch((error)=>{
+        console.log(error.response.data.detail)
+        toast.error(error.response.data.detail);
+    })
+  },[])
+  const now = new Date();
+  const carbon_emission = 0.495
   return (
     <div className="yongdian-container">
       <Helmet>
@@ -18,7 +49,7 @@ const Yongdian = (props) => {
           <img alt="image" src="/graph1-1500h.png" className="yongdian-image" />
           <input
             type="date"
-            placeholder="placeholder"
+            placeholder="2024/04/18"
             className="yongdian-textinput input"
           />
           <select className="yongdian-select">
@@ -68,17 +99,17 @@ const Yongdian = (props) => {
         <div className="yongdian-container3">
           <input
             type="date"
-            placeholder="placeholder"
+            placeholder="2024/04/18"
             className="yongdian-textinput1 input"
           />
           <span className="yongdian-text16">
-            上月用電量在當前區域為多於97%人
+            上月用電量在當前區域為多於{(parseFloat(rank.rank)*100).toFixed(0)}%人
           </span>
           <img alt="image" src="/jifei-1500w.png" className="yongdian-image2" />
-          <span className="yongdian-text17">320</span>
+          <span className="yongdian-text17">{(parseFloat(usage.usage) * carbon_emission).toFixed(3)}</span>
           <span className="yongdian-date-time">
             <DateTimePrimitive
-              format="DD/MM/YYYY"
+              format="YYYY/MM/DD"
               date="Thu Mar 14 2024 15:04:38 GMT+0800 (Taipei Standard Time)"
             ></DateTimePrimitive>
           </span>

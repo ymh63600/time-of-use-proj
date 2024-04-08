@@ -1,11 +1,74 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import { Link } from 'react-router-dom'
-
+import axios from "axios"
 import { Helmet } from 'react-helmet'
-
+import {toast} from "react-toastify";
 import './ziding.css'
+import qs from 'qs';
 
 const Ziding = (props) => {
+  axios.defaults.baseURL = 'http://localhost:8000';
+  const [daylimitForm,setDayLimitForm]=useState({
+    daylimit:"",
+  })
+  const [monthlimitForm,setMonthLimitForm]=useState({
+    monthlimit:"",
+  })
+  const [user,setUser]=useState({})
+  const onChangeForm=(label,event)=>{
+    switch(label){
+        case "daylimit":
+          setDayLimitForm({...daylimitForm,daylimit:event.target.value});
+          
+          break;
+        case "monthlimit":
+          setMonthLimitForm({...monthlimitForm,monthlimit:event.target.value});
+          break;
+        default:
+            break;
+    }
+  }
+  useEffect(()=>{
+    const token=localStorage.getItem("auth_token")
+    axios.get("/limit/",{
+        headers:{Authorization:token}
+    }).then((response)=>{
+        console.log(response)
+        setUser(response.data)
+        toast.success(response.data.detail)
+    }).catch((error)=>{
+        console.log(error.response.data.detail)
+        toast.error(error.response.data.detail);
+    })
+  },[])
+  const onDayClickHandler= async(event)=>{
+    event.preventDefault()
+    const token=localStorage.getItem("auth_token")
+    console.log(daylimitForm)
+    await axios.post("/limit/day/",daylimitForm,{
+      headers:{Authorization:token,'Content-Type':'application/x-www-form-urlencoded'},data:qs.stringify({daylimit:daylimitForm.daylimit})
+    }).then((response)=>{
+        console.log(response)
+        toast.success(response.data.detail)
+    }).catch((error)=>{
+        console.log(error)
+        toast.error(error.response.data.detail);
+    })
+  };
+  const onMonthClickHandler= async(event)=>{
+    event.preventDefault()
+    const token=localStorage.getItem("auth_token")
+    console.log(monthlimitForm)
+    await axios.patch("/limit/month/",monthlimitForm,{
+      headers:{Authorization:token,'Content-Type':'application/x-www-form-urlencoded'},data:qs.stringify({monthlimit:monthlimitForm.monthlimit})
+      }).then((response)=>{
+        console.log(response)
+        toast.success(response.data.detail)
+    }).catch((error)=>{
+        console.log(error)
+        toast.error(error.response.data.detail);
+    })
+  };
   return (
     <div className="ziding-container">
       <Helmet>
@@ -15,18 +78,33 @@ const Ziding = (props) => {
       <img alt="image" src="/meiri-1500w.png" className="ziding-image" />
       <img alt="image" src="/meiyue-1500w.png" className="ziding-image1" />
       <img alt="image" src="/p1-1500w.png" className="ziding-image2" />
-      <button type="button" className="ziding-button button">
+      <form onSubmit={onDayClickHandler}>
+      <input 
+        type="number" 
+        placeholder={user.daylimit} 
+        className="ziding-textinput input" 
+        onChange={(event)=>{onChangeForm("daylimit",event)}} />
+      <button type="submit" className="ziding-button button">
         <span className="ziding-text">
           <span>Update</span>
           <br></br>
         </span>
       </button>
-      <button type="button" className="ziding-button1 button">
+      </form>
+      <form onSubmit={onMonthClickHandler}>
+      <input
+        type="number"
+        placeholder={user.monthlimit}
+        className="ziding-textinput1 input"
+        onChange={(event)=>{onChangeForm("monthlimit",event)}}
+      />
+      <button type="submit" className="ziding-button1 button">
         <span className="ziding-text03">
           <span>Update</span>
           <br></br>
         </span>
       </button>
+      </form>
       <img alt="image" src="/p2-1500w.png" className="ziding-image3" />
       <span className="ziding-text06">62%</span>
       <span className="ziding-text07">80%</span>
@@ -45,12 +123,8 @@ const Ziding = (props) => {
           className="ziding-image6"
         />
       </header>
-      <input type="number" placeholder="20" className="ziding-textinput input" />
-      <input
-        type="number"
-        placeholder="200"
-        className="ziding-textinput1 input"
-      />
+      
+      
     </div>
   )
 }
