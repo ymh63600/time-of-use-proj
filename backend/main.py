@@ -11,8 +11,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from admin_router import admin_router
 from password_router import password_router
 from user_router import user_router
+from limit_router import limit_router
 from calculate import data_router
-
+from electricity import electricity_router
 origins=["http://localhost:3000"]
 #origins=["*"]
 app = FastAPI()
@@ -20,6 +21,8 @@ app.include_router(admin_router)
 app.include_router(password_router)
 app.include_router(user_router)
 app.include_router(data_router)
+app.include_router(limit_router)
+app.include_router(electricity_router)
 app.add_middleware(CORSMiddleware,allow_origins=origins,allow_credentials=True,allow_methods=["*"],allow_headers=["*"])
 
 @app.get("/")
@@ -67,7 +70,7 @@ async def get_jwt(username: str = Body(),
         {"username": username, "token": jwt_token,"is_Admin": admin},
         headers={"Authorization": "Bearer " + jwt_token}
     )
-    return {"ok"}
+    return response
     
 
 if __name__ == "__main__":
