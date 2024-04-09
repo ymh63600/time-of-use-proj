@@ -41,6 +41,35 @@ const Ziding = (props) => {
         toast.error(error.response.data.detail);
     })
   },[])
+  const [usage,setUsage]=useState({})
+  useEffect(()=>{
+    const token=localStorage.getItem("auth_token")
+    axios.get("/electricity/today/",{
+        headers:{Authorization:token}
+    }).then((response)=>{
+        console.log(response)
+        setUsage(response.data)
+        toast.success(response.data.detail)
+    }).catch((error)=>{
+        console.log(error.response.data.detail)
+        toast.error(error.response.data.detail);
+    })
+  },[])
+  const [month_usage,setMonthUsage]=useState({})
+  useEffect(()=>{
+    const token=localStorage.getItem("auth_token")
+    axios.get("/electricity/thismonth/",{
+        headers:{Authorization:token}
+    }).then((response)=>{
+        console.log(response)
+        setMonthUsage(response.data)
+        toast.success(response.data.detail)
+    }).catch((error)=>{
+        console.log(error.response.data.detail)
+        toast.error(error.response.data.detail);
+    })
+  },[])
+  const now = new Date();
   const onDayClickHandler= async(event)=>{
     event.preventDefault()
     const token=localStorage.getItem("auth_token")
@@ -106,8 +135,8 @@ const Ziding = (props) => {
       </button>
       </form>
       <img alt="image" src="/p2-1500w.png" className="ziding-image3" />
-      <span className="ziding-text06">62%</span>
-      <span className="ziding-text07">80%</span>
+      <span className="ziding-text06">{(parseFloat(month_usage.usage)/parseFloat(user.monthlimit)).toFixed(2)*100}%</span>
+      <span className="ziding-text07">{(parseFloat(usage.usage)/parseFloat(user.daylimit)).toFixed(2)*100}%</span>
       <img alt="image" src="/mr1-1500w.png" className="ziding-image4" />
       <img alt="image" src="/my1-1500w.png" className="ziding-image5" />
       <header data-thq="thq-navbar" className="ziding-navbar-interactive">

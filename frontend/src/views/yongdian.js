@@ -98,8 +98,8 @@ const Yongdian = (props) => {
         </div>
         <div className="yongdian-container3">
           <input
-            type="date"
-            placeholder="2024/04/18"
+            type="text"
+            placeholder="年/月/日"
             className="yongdian-textinput1 input"
           />
           <span className="yongdian-text16">
