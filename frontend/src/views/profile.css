@@ -238,6 +238,7 @@
   .profile-textinput {
     top: 45vh;
     left: auto;
+    margin-left: -27.5vh;
     position: absolute;
   }
   .profile-navlink {
@@ -273,6 +274,7 @@
   .profile-button {
     top: 85vh;
     left: auto;
+    margin-left: -11vh;
     position: absolute;
   }
   .profile-text07 {

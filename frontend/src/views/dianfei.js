@@ -62,10 +62,7 @@ const Dianfei = (props) => {
             <span>（三段式）</span>
           </span>
           <span className="dianfei-text09">2750</span>
-          <span className="dianfei-text10">
-            <span>2500</span>
-            <br></br>
-          </span>
+          <span className="dianfei-text10">2500</span>
           <span className="dianfei-text13">2635</span>
           <span className="dianfei-text14">
             <span>方案估價：</span>
@@ -83,11 +80,6 @@ const Dianfei = (props) => {
         </div>
         <div className="dianfei-container3">
           <img alt="image" src="/graph2-1500h.png" className="dianfei-image7" />
-          <input
-            type="date"
-            placeholder="placeholder"
-            className="dianfei-textinput input"
-          />
           <select autoComplete="off" className="dianfei-select">
             <option value="Option 1">累進</option>
             <option value="00:00 - 03:00">二段式</option>

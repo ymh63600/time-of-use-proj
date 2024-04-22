@@ -37,7 +37,7 @@ const App = () => {
         <Route component={Shisuan} exact path="/shisuan" />
         <Route component={Create} exact path="/create" />
         <Route component={Dianfei} exact path="/dianfei" />
-        <Route component={Yongdian} exact path="/11" />
+        <Route component={Yongdian} exact path="/yongdian" />
         <Route component={Ziding} exact path="/ziding" />
         <Route component={Verification} path="/verification/:token" />
         <Route component={Adminpage1} exact path="/adminpage1" />

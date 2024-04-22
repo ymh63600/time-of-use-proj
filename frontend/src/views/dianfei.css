@@ -175,7 +175,7 @@
   position: absolute;
   font-size: 3vh;
   font-family: "Comic Sans MS";
-  margin-left: 36vh;
+  margin-left: 35vh;
   margin-right: 1.5vh;
   letter-spacing: 1vh;
 }
@@ -224,28 +224,15 @@
   align-items: center;
 }
 .dianfei-image7 {
-  top: 40vh;
+  top: 38vh;
   right: 15%;
   width: 55vh;
   z-index: 100;
   position: absolute;
   object-fit: cover;
 }
-.dianfei-textinput {
-  top: 27vh;
-  color: #49688d;
-  right: 15%;
-  width: 25vh;
-  height: 5vh;
-  z-index: 100;
-  position: absolute;
-  font-size: 2vh;
-  box-shadow: rgba(54, 173, 185, 0.52) 5px 5px 10px 0px;
-  border-width: 0px;
-  border-radius: 12px;
-}
 .dianfei-select {
-  top: 20vh;
+  top: 29vh;
   right: 15%;
   width: 25vh;
   height: 5vh;
@@ -257,7 +244,7 @@
   border-radius: 12px;
 }
 .dianfei-text17 {
-  top: 21vh;
+  top: 30vh;
   color: rgb(73, 104, 141);
   right: 15%;
   position: absolute;
@@ -346,20 +333,15 @@
   .dianfei-image6 {
     left: auto;
     margin: 0;
-    margin-right: 8vh;
+    margin-left: -10vh;
   }
   .dianfei-container3 {
     display: contents;
   }
   .dianfei-image7 {
-    top: 25vh;
+    top: 22.5vh;
     right: auto;
     width: 35vh;
-  }
-  .dianfei-textinput {
-    top: 17vh;
-    right: auto;
-    margin-left: 20vh;
   }
   .dianfei-select {
     top: 11%;

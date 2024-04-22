@@ -45,7 +45,7 @@
   top: 30vh;
   left: 20%;
   color: #49688d;
-  width: 36vh;
+  width: 50vh;
   height: 6vh;
   z-index: 100;
   position: absolute;
@@ -59,7 +59,7 @@
   top: 40vh;
   left: 20%;
   color: #49688d;
-  width: 36vh;
+  width: 50vh;
   height: 6vh;
   z-index: 100;
   position: absolute;
@@ -73,7 +73,7 @@
   top: 50vh;
   left: 20%;
   color: #49688d;
-  width: 36vh;
+  width: 50vh;
   height: 6vh;
   z-index: 100;
   position: absolute;
@@ -87,7 +87,7 @@
   top: 60vh;
   left: 20%;
   color: #49688d;
-  width: 36vh;
+  width: 50vh;
   height: 6vh;
   z-index: 100;
   position: absolute;
@@ -136,10 +136,10 @@
   font-size: 2vh;
   box-shadow: 5px 5px 10px 0px rgba(54, 173, 185, 0.51);
   text-align: center;
-  margin-left: 8vh;
+  margin-left: 14.5vh;
   padding-top: 1vh;
   border-width: 0px;
-  margin-right: 8vh;
+  margin-right: 14.5vh;
   border-radius: 20px;
   text-decoration: none;
 }
@@ -197,19 +197,23 @@
   }
   .create-input {
     top: 40vh;
+    margin-left: -18vh;
     left: auto;
   }
   .create-input1 {
     top: 50vh;
+    margin-left: -18vh;
     left: auto;
   }
   .create-textinput {
     top: 60vh;
+    margin-left: -18vh;
     left: auto;
     position: absolute;
   }
   .create-textinput1 {
     top: 70vh;
+    margin-left: -18vh;
     left: auto;
     position: absolute;
   }
@@ -228,6 +232,7 @@
   .create-button {
     top: 80vh;
     left: auto;
+    margin-left: -10vh;
     position: absolute;
   }
   .create-text1 {

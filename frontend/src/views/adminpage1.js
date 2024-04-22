@@ -62,7 +62,7 @@ const Adminpage1 = (props) => {
     console.log(getForm)
     await axios.delete("/admin/",{headers:{Authorization:token,is_Admin:is_Admin},data:qs.stringify({username:getForm.username})},getForm).then((response)=>{ 
       console.log(response)
-      toast.success(response.data.detail)
+      toast.success("User deleted!")
     }).catch((error)=>{
         console.log(error)
         toast.error(error.response.data.detail);

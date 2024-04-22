@@ -28,7 +28,7 @@ const ForgotPassword = (props) => {
     await axios.patch("/password/forget/",changeForm).then((response)=>{
         console.log(response)
         localStorage.setItem("auth_token",response.data.token)
-        toast.success(response.data.detail)
+        toast.success("Email sent!")
     }).catch((error)=>{
         console.log(error)
         toast.error(error.response.data.detail);

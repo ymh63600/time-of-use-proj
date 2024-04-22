@@ -38,6 +38,24 @@ const Yongdian = (props) => {
   },[])
   const now = new Date();
   const carbon_emission = 0.495
+  const onSubmitHandler= async(event)=>{
+    event.preventDefault()
+    console.log(loginForm)
+    await axios.post("/login",loginForm).then((response)=>{
+        console.log(response)
+        localStorage.setItem("auth_token",response.data.token)
+        localStorage.setItem("is_Admin",response.data.Admin)
+        if(response.data.is_Admin){
+          history.push('/adminpage1');
+        }else{
+          history.push('/home');
+        }
+        toast.success(response.data.detail)
+    }).catch((error)=>{
+        console.log(error)
+        toast.error(error.response.data.detail);
+    })
+  };
   return (
     <div className="yongdian-container">
       <Helmet>
@@ -47,21 +65,6 @@ const Yongdian = (props) => {
       <div className="yongdian-container1">
         <div className="yongdian-container2">
           <img alt="image" src="/graph1-1500h.png" className="yongdian-image" />
-          <input
-            type="date"
-            placeholder="2024/04/18"
-            className="yongdian-textinput input"
-          />
-          <select className="yongdian-select">
-            <option value="00:00 - 03:00">00:00 - 03:00</option>
-            <option value="03:00 - 06:00">03:00 - 06:00</option>
-            <option value="06:00 - 09:00">06:00 - 09:00</option>
-            <option value="09:00 - 12:00">09:00 - 12:00</option>
-            <option value="12:00 - 15:00">12:00 - 15:00</option>
-            <option value="15:00 - 18:00">15:00 - 18:00</option>
-            <option value="18:00 - 21:00">18:00 - 21:00</option>
-            <option value="21:00 - 24:00">21:00 - 24:00</option>
-          </select>
           <img
             alt="image"
             src="/navigation%20bar-1500h.png"
@@ -97,16 +100,12 @@ const Yongdian = (props) => {
           </button>
         </div>
         <div className="yongdian-container3">
-          <input
-            type="text"
-            placeholder="年/月/日"
-            className="yongdian-textinput1 input"
-          />
+          
           <span className="yongdian-text16">
             上月用電量在當前區域為多於{(parseFloat(rank.rank)*100).toFixed(0)}%人
           </span>
           <img alt="image" src="/jifei-1500w.png" className="yongdian-image2" />
-          <span className="yongdian-text17">{(parseFloat(usage.usage) * carbon_emission).toFixed(3)}</span>
+          <span className="yongdian-text17">{(parseFloat(usage.usage) * carbon_emission).toFixed(2)}</span>
           <span className="yongdian-date-time">
             <DateTimePrimitive
               format="YYYY/MM/DD"
@@ -122,6 +121,18 @@ const Yongdian = (props) => {
               />
             </Link>
           </button>
+          <form onSubmit={onSubmitHandler}>
+          <input
+            type="text"
+            placeholder="年/月/日"
+            className="yongdian-textinput1 input"
+          />
+          <button type="submit" className="yongdian-button5 button">
+            <span>
+                Update
+            </span>
+          </button>
+          </form>
         </div>
       </div>
       <header data-thq="thq-navbar" className="yongdian-navbar-interactive">
@@ -130,14 +141,14 @@ const Yongdian = (props) => {
           src="/frontend%20web%20(2)-1500h.png"
           className="yongdian-image4"
         />
-        <Link to="/profile" className="yongdian-navlink1 button">
+        <Link to="/profile" className="yongdian-navlink2 button">
           <img
             alt="image"
             src="/frontend%20web%20(5)-1500h.png"
             className="yongdian-image5"
           />
         </Link>
-        <Link to="/home" className="yongdian-navlink2 button">
+        <Link to="/home" className="yongdian-navlink3 button">
           <img
             alt="image"
             src="/frontend%20web%20(4)-1500h.png"

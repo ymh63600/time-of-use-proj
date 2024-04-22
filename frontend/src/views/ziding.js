@@ -135,12 +135,12 @@ const Ziding = (props) => {
       </button>
       </form>
       <img alt="image" src="/p2-1500w.png" className="ziding-image3" />
-      <span className="ziding-text06">{(parseFloat(month_usage.usage)/parseFloat(user.monthlimit)).toFixed(2)*100}%</span>
-      <span className="ziding-text07">{(parseFloat(usage.usage)/parseFloat(user.daylimit)).toFixed(2)*100}%</span>
+      <span className="ziding-text06">{((parseFloat(month_usage.usage)/parseFloat(user.monthlimit))*100).toFixed(2)}%</span>
+      <span className="ziding-text07">{((parseFloat(usage.usage)/parseFloat(user.daylimit))*100).toFixed(2)}%</span>
       <img alt="image" src="/mr1-1500w.png" className="ziding-image4" />
       <img alt="image" src="/my1-1500w.png" className="ziding-image5" />
       <header data-thq="thq-navbar" className="ziding-navbar-interactive">
-        <Link to="/11" className="ziding-navlink button">
+        <Link to="/yongdian" className="ziding-navlink button">
           <span>
             <span>&lt; Back</span>
             <br></br>

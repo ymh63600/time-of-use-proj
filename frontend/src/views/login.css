@@ -77,9 +77,9 @@
   z-index: 100;
   position: absolute;
   font-size: 2vh;
-  margin-left: 9vh;
+  margin-left: 8vh;
   border-width: 0px;
-  margin-right: 9vh;
+  margin-right: 8vh;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -128,6 +128,7 @@
   }
   .login-navlink {
     top: 68vh;
+    margin-left: -10vh;
     left: auto;
   }
   .login-navlink1 {
@@ -140,10 +141,12 @@
   }
   .login-input {
     top: 58vh;
+    margin-left: -18vh;
     left: auto;
   }
   .login-textinput {
     top: 48vh;
+    margin-left: -18vh;
     left: auto;
   }
 }

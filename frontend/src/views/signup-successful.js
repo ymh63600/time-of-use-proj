@@ -13,7 +13,7 @@ const SignupSuccessful = (props) => {
     const token=localStorage.getItem("auth_token")
     await axios.get("/user/resend/",{headers:{Authorization:token}}).then((response)=>{
         console.log(response)
-        toast.success(response.data.detail)
+        toast.success("Email resent!")
     }).catch((error)=>{
         console.log(token)
         console.log(error)

@@ -28,39 +28,12 @@
   justify-content: flex-start;
 }
 .yongdian-image {
-  top: 40vh;
+  top: 32vh;
   right: auto;
   width: 55vh;
   z-index: 100;
   position: absolute;
   object-fit: cover;
-}
-.yongdian-textinput {
-  top: 27vh;
-  color: #49688d;
-  right: auto;
-  width: 20vh;
-  height: 4vh;
-  z-index: 100;
-  position: absolute;
-  font-size: 2vh;
-  box-shadow: rgba(54, 173, 185, 0.52) 5px 5px 10px 0px;
-  border-width: 0px;
-  margin-right: 40vh;
-  border-radius: 20px;
-}
-.yongdian-select {
-  top: 27vh;
-  right: auto;
-  width: 20vh;
-  height: 4vh;
-  z-index: 100;
-  position: absolute;
-  font-size: 2vh;
-  box-shadow: rgba(54, 173, 185, 0.52) 5px 5px 10px 0px;
-  margin-right: -38vh;
-  padding-left: 1vh;
-  border-radius: 20px;
 }
 .yongdian-image1 {
   top: 18vh;
@@ -211,10 +184,10 @@
   height: 4vh;
   z-index: 100;
   position: absolute;
-  font-size: 2vh;
-  margin-left: 24vh;
-  border-width: 0px;
+  font-size: 2.2vh;
   text-align: center;
+  margin-left: 24.5vh;
+  border-width: 0px;
 }
 .yongdian-text16 {
   top: 19.2vh;
@@ -237,11 +210,13 @@
   top: 63vh;
   left: 55%;
   color: rgb(73, 104, 141);
+  width: 50vh;
   z-index: 100;
   position: absolute;
   font-size: 3vh;
+  text-align: center;
   font-family: "Comic Sans MS";
-  margin-left: 33vh;
+  margin-left: 12.5vh;
   letter-spacing: 1vh;
 }
 .yongdian-date-time {
@@ -275,6 +250,18 @@
   margin-left: 37vh;
   text-decoration: none;
 }
+.yongdian-button5 {
+  top: 45vh;
+  left: 55%;
+  color: rgb(73, 104, 141);
+  z-index: 100;
+  position: absolute;
+  font-size: 2.2vh;
+  margin-left: 46vh;
+  border-width: 0px;
+  text-decoration: underline;
+  background-color: transparent;
+}
 .yongdian-navbar-interactive {
   top: 0;
   left: auto;
@@ -296,7 +283,7 @@
   position: absolute;
   object-fit: cover;
 }
-.yongdian-navlink1 {
+.yongdian-navlink2 {
   z-index: 100;
   margin-left: 82vw;
   border-width: 0px;
@@ -306,7 +293,7 @@
   width: 10vh;
   object-fit: cover;
 }
-.yongdian-navlink2 {
+.yongdian-navlink3 {
   left: 4vw;
   z-index: 100;
   position: absolute;
@@ -327,18 +314,8 @@
     display: contents;
   }
   .yongdian-image {
-    top: 23vh;
+    top: 18vh;
     width: 35vh;
-  }
-  .yongdian-textinput {
-    top: 18vh;
-    right: auto;
-    margin-right: 30vh;
-  }
-  .yongdian-select {
-    top: 18vh;
-    right: auto;
-    margin-right: -29vh;
   }
   .yongdian-image1 {
     top: 10vh;
@@ -374,10 +351,10 @@
   .yongdian-textinput1 {
     top: 59vh;
     left: auto;
-    margin-left: 0px;
+    margin-left: -10.5vh;
   }
   .yongdian-text16 {
-    top: 52vh;
+    top: 50vh;
     left: auto;
     font-size: 2vh;
     margin-left: 0px;
@@ -412,6 +389,16 @@
     left: auto;
     width: 15vh;
     margin: 0;
+  }
+  .yongdian-button5 {
+    top: 69vh;
+    left: auto;
+    font-size: 2vh;
+    margin-left: 6vh;
+  }
+  .yongdian-navlink1 {
+    top: 84vh;
+    left: auto;
   }
   .yongdian-image4 {
     width: 0;

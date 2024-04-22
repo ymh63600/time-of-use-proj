@@ -31,7 +31,7 @@ const Home = (props) => {
       </Helmet>
       <div className="home-container1">
         <button type="button" className="home-button button">
-          <Link to="/11">
+          <Link to="/yongdian">
             <img
               alt="image"
               src="/yongdian2-1000h.png"
