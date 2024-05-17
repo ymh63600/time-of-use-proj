@@ -2,12 +2,12 @@ import React,{useEffect,useState} from 'react'
 import { Link ,useHistory} from 'react-router-dom'
 import axios from "axios"
 import { Helmet } from 'react-helmet'
-import URL from "../Config.js"
+import {URL} from "../Config.js"
 import './profile.css'
 import {toast} from "react-toastify";
 
 const Profile = (props) => {
-  axios.defaults.baseURL = 'http://localhost:8000';
+  axios.defaults.baseURL = URL;
   const history = useHistory();
   const [getForm,setGetForm]=useState({
     electricity_meter:"",

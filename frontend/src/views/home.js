@@ -4,10 +4,12 @@ import axios from "axios"
 import { DateTimePrimitive } from '@teleporthq/react-components'
 import { Helmet } from 'react-helmet'
 import {toast} from "react-toastify";
+import {URL} from '../Config';
 import './home.css'
 
 const Home = (props) => {
-  axios.defaults.baseURL = 'http://localhost:8000';
+  console.log(URL);
+  axios.defaults.baseURL = URL;
   const [usage,setUsage]=useState({})
   useEffect(()=>{
     const token=localStorage.getItem("auth_token")

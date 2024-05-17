@@ -3,11 +3,11 @@ import { Link , useHistory } from 'react-router-dom'
 import axios from "axios"
 import { Helmet } from 'react-helmet'
 import './create.css'
-import URL from "../Config.js"
+import {URL} from "../Config.js"
 import {toast} from "react-toastify";
 
 const Create = (props) => {
-  axios.defaults.baseURL = 'http://localhost:8000';
+  axios.defaults.baseURL = URL;
   const history = useHistory();
   const [formRegister,setFormRegister]=useState({
     username:" ",

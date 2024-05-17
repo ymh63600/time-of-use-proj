@@ -4,10 +4,11 @@ import axios from "axios"
 import { DateTimePrimitive } from '@teleporthq/react-components'
 import { Helmet } from 'react-helmet'
 import {toast} from "react-toastify";
+import {URL} from "../Config.js"
 import './yongdian.css'
 
 const Yongdian = (props) => {
-  axios.defaults.baseURL = 'http://localhost:8000';
+  axios.defaults.baseURL = URL;
   const [usage,setUsage]=useState({})
   const [rank,setRank]=useState({})
   useEffect(()=>{

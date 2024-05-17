@@ -3,11 +3,11 @@ import axios from "axios"
 import { Helmet } from 'react-helmet'
 import { Link, useHistory } from 'react-router-dom'
 import './verification.css'
-import URL from "../Config.js"
+import {URL} from "../Config.js"
 import {toast} from "react-toastify";
 
 const Verification = (props) => {
-  axios.defaults.baseURL = 'http://localhost:8000';
+  axios.defaults.baseURL = URL;
   const history = useHistory();
   const change_page = () =>{
     history.push('/');

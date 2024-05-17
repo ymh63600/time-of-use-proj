@@ -3,10 +3,12 @@ import { Link, useHistory } from 'react-router-dom'
 import axios from "axios"
 import { Helmet } from 'react-helmet'
 import './login.css'
+import {URL} from '../Config';
 import {toast} from "react-toastify";
 
 const Login = (props) => {
-  axios.defaults.baseURL = 'http://localhost:8000'
+  console.log(URL);
+  axios.defaults.baseURL = URL
   //axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
   const history = useHistory();
   const [loginForm,setLoginForm]=useState({

@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import axios from "axios"
 import './signup-successful.css'
-import URL from "../Config.js"
+import {URL} from "../Config.js"
 import {toast} from "react-toastify";
 
 const SignupSuccessful = (props) => {
-  axios.defaults.baseURL = 'http://localhost:8000';
+  axios.defaults.baseURL = URL;
   const onSubmitHandler = async (event)=>{
     event.preventDefault()
     const token=localStorage.getItem("auth_token")

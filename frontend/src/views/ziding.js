@@ -4,10 +4,11 @@ import axios from "axios"
 import { Helmet } from 'react-helmet'
 import {toast} from "react-toastify";
 import './ziding.css'
+import {URL} from '../Config';
 import qs from 'qs';
 
 const Ziding = (props) => {
-  axios.defaults.baseURL = 'http://localhost:8000';
+  axios.defaults.baseURL = URL;
   const [daylimitForm,setDayLimitForm]=useState({
     daylimit:"",
   })

@@ -2,12 +2,12 @@ import React,{useState} from 'react'
 import { Link,useHistory } from 'react-router-dom'
 import axios from "axios"
 import { Helmet } from 'react-helmet'
-import URL from "../Config.js"
+import {URL} from "../Config.js"
 import './change-password.css'
 import {toast} from "react-toastify";
 
 const ChangePassword = (props) => {
-  axios.defaults.baseURL = 'http://localhost:8000';
+  axios.defaults.baseURL = URL;
   
   const history = useHistory();
   const [loginForm,setLoginForm]=useState({

@@ -2,14 +2,14 @@ import React,{useState} from 'react'
 import { Link } from 'react-router-dom'
 import axios from "axios"
 import { Helmet } from 'react-helmet'
-import URL from "../Config.js"
+import {URL} from "../Config.js"
 import './forgot-password.css'
 import {toast} from "react-toastify";
 
 import './forgot-password.css'
 
 const ForgotPassword = (props) => {
-  axios.defaults.baseURL = 'http://localhost:8000';
+  axios.defaults.baseURL = URL;
   const [changeForm,setChangeForm]=useState({
     username:"",
   })

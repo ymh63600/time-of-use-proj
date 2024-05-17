@@ -3,11 +3,12 @@ import { Link ,useHistory} from 'react-router-dom'
 import axios from "axios"
 import { Helmet } from 'react-helmet'
 import { toast } from "react-toastify";
+import {URL} from "../Config.js"
 import './delete-account.css'
 
 const DeleteAccount = (props) => {
   const history = useHistory();
-  axios.defaults.baseURL = 'http://localhost:8000';
+  axios.defaults.baseURL = URL;
   const onDeleteHandler = async (event) => {
     event.preventDefault()
     const token = localStorage.getItem("auth_token")

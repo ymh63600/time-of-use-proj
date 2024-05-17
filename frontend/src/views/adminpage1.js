@@ -4,11 +4,11 @@ import { Helmet } from 'react-helmet'
 import axios from "axios"
 import './adminpage1.css'
 import {toast} from "react-toastify";
-import URL from "../Config.js"
+import {URL} from '../Config';
 import qs from 'qs';
 
 const Adminpage1 = (props) => {
-  axios.defaults.baseURL = 'http://localhost:8000';
+  axios.defaults.baseURL = URL;
   //axios.defaults.headers.post['Content-Type'] = 
   axios.defaults.headers.delete['Content-Type'] = 'application/x-www-form-urlencoded'
   const history = useHistory();
