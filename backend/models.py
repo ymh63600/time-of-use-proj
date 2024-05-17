@@ -23,6 +23,9 @@ class User(Base):
     confirm_email=Column(sa.BOOLEAN,default=False)
     creat_time=Column(sa.types.DateTime,default=datetime.utcnow())
     last_login=Column(sa.types.DateTime,nullable=True)
+    daylimit=Column(sa.INT,nullable=True)
+    monthlimit=Column(sa.INT,nullable=True)
+    
 
 class UpdatePassword(BaseModel):
     current_password: str

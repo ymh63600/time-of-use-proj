@@ -5,7 +5,7 @@ from config import Response
 from sqlalchemy.orm.session import Session
 from models import User,Electricity_Data
 from fastapi.responses import JSONResponse
-import jwt
+from jose import jwt
 from config import Config
 
 user_router = APIRouter()
