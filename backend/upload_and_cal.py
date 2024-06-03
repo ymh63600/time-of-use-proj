@@ -106,7 +106,7 @@ def categorize_time_slot_type2(row):
             return 'Weekday 00:00-06:00 11:00-14:00'
         else:
             return 'Weekend'
-        
+      
 def categorize_time_slot_type3(row):
     if row['is_summer'] == 'summer':
         if row['generated_time'].weekday() < 5 and (row['generated_time'].hour >= 16 and row['generated_time'].hour < 22):
