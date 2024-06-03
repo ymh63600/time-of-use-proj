@@ -2,3 +2,4 @@ poetry.lock
 pyproject.toml
 **.pyc
 /frontend/node_modules/
+*.DS_Store
