@@ -7,11 +7,14 @@
     "@teleporthq/react-components": "latest",
     "axios": "^1.6.8",
     "craco": "^0.0.3",
+    "install": "^0.13.0",
+    "npm": "^10.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0",
-    "react-toastify": "^10.0.5"
+    "react-toastify": "^10.0.5",
+    "recharts": "^2.12.7"
   },
   "scripts": {
     "start": "craco start",

@@ -121,7 +121,7 @@ async def update_user(request:Request,
     if "application/json" in content_type:
         data = await request.json()
         electricity_meter = data.get("electricity_meter",None)
-    
+        
     user: User = (db.query(User).filter(User.username == current_user).first())
     try: 
         check: Electricity_Data = (db.query(Electricity_Data).filter(Electricity_Data.device_uuid == electricity_meter).first())

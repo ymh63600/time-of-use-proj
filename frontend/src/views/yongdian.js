@@ -6,11 +6,14 @@ import { Helmet } from 'react-helmet'
 import {toast} from "react-toastify";
 import {URL} from "../Config.js"
 import './yongdian.css'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 
 const Yongdian = (props) => {
   axios.defaults.baseURL = URL;
   const [usage,setUsage]=useState({})
   const [rank,setRank]=useState({})
+  const [drawData, setData]=useState({})
+  
   useEffect(()=>{
     const token=localStorage.getItem("auth_token")
     axios.get("/electricity/lastmonth/",{
@@ -40,23 +43,47 @@ const Yongdian = (props) => {
   const now = new Date();
   const carbon_emission = 0.495
   const onSubmitHandler= async(event)=>{
-    event.preventDefault()
-    console.log(loginForm)
-    await axios.post("/login",loginForm).then((response)=>{
-        console.log(response)
-        localStorage.setItem("auth_token",response.data.token)
-        localStorage.setItem("is_Admin",response.data.Admin)
-        if(response.data.is_Admin){
-          history.push('/adminpage1');
-        }else{
-          history.push('/home');
-        }
-        toast.success(response.data.detail)
-    }).catch((error)=>{
-        console.log(error)
-        toast.error(error.response.data.detail);
-    })
+    
   };
+  useEffect(()=>{
+    const fetchData = async () => {
+      try {
+        const token = localStorage.getItem("auth_token");
+        const response = await axios.get("/fetch/timeUsage/", {
+          headers:{Authorization:token}
+      });
+        console.log(response);
+        setData(response.data);
+        console.log(response.data.detail)
+        toast.success(response.data.detail);
+      } catch (error) {
+        console.log(error.response.data.detail);
+        toast.error(error.response.data.detail);
+      }
+    }
+    fetchData(); 
+  },)
+  const mappedData = Array.isArray(drawData) ? drawData.map(item => {
+    const time = item[0].split('T')[1]; // 提取日期部分//
+    const hour = time.split(':')[0];
+    const value = item[1];
+    let value_rounded = parseFloat(value.toFixed(2));
+    return { hour, value_rounded};
+  }) : [];
+  console.log(mappedData)
+  const differences = mappedData.map((item, index) => {
+  if (index === 0) {
+    // 第一个元素没有前一项，差值设为0
+    return { hour: item.hour, value: 0 };
+  }
+  const difference = item.value_rounded - mappedData[0].value_rounded
+  const value = parseFloat(difference.toFixed(2))
+  return {
+    hour: item.hour,
+    value : value
+  };
+  });
+  console.log(differences)
   return (
     <div className="yongdian-container">
       <Helmet>
@@ -64,42 +91,25 @@ const Yongdian = (props) => {
         <meta property="og:title" content="yongdian - electricity" />
       </Helmet>
       <div className="yongdian-container1">
-        <div className="yongdian-container2">
-          <img alt="image" src="/graph1-1500h.png" className="yongdian-image" />
-          <img
-            alt="image"
-            src="/navigation%20bar-1500h.png"
-            className="yongdian-image1"
-          />
-          <button type="button" className="yongdian-button button">
-            <span>
-              <span>  </span>
-              <br></br>
-              <br></br>
-            </span>
-          </button>
-          <button type="button" className="yongdian-button1 button">
-            <span>
-              <span>  </span>
-              <br></br>
-              <br></br>
-            </span>
-          </button>
-          <button type="button" className="yongdian-button2 button">
-            <span>
-              <span>  </span>
-              <br></br>
-              <br></br>
-            </span>
-          </button>
-          <button type="button" className="yongdian-button3 button">
-            <span>
-              <span>  </span>
-              <br></br>
-              <br></br>
-            </span>
-          </button>
-        </div>
+        
+        <LineChart
+              width={700}
+              height={300}
+              data={differences}
+              margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
+            >
+	    <CartesianGrid strokeDasharray="10 10" />
+            <XAxis dataKey="hour"/>
+            <YAxis type="number" domain={([dataMin, dataMax]) => { const absMax = Math.round(dataMax+1); return [0, absMax]; }}/>
+            <Tooltip />
+            <Legend />
+            <Line name = "usage of eletricity"type="monotone" dataKey="value" stroke="#7CCD7C" activeDot={{ r: 8 }} />
+	    </LineChart>
         <div className="yongdian-container3">
           
           <span className="yongdian-text16">
