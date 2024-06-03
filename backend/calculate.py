@@ -1,17 +1,24 @@
-from fastapi import  Depends, APIRouter, Form
-from config import Response
+from fastapi import  Depends, APIRouter
+from config import Response, Config
 import pandas as pd
 from connection import get_db
 from sqlalchemy.orm.session import Session
 from models import *
-from sqlalchemy import and_
 from datetime import datetime
 from calculate_data.bill_type import *
+import psycopg2
 
 data_router = APIRouter()
 
-start_date = datetime(2022, 1, 9, 0, 0, 0)  # 包含秒信息的起始日期时间
-end_date = datetime(2023, 1, 9, 23, 59, 59)  # 包含秒信息的结束日期时间
+start_date = datetime(2022, 5, 1, 0, 0, 0)  # 包含秒信息的起始日期时间
+end_date = datetime(2022, 5, 30, 23, 59, 59)  # 包含秒信息的结束日期时间
+
+conn = psycopg2.connect(Config.DB_URL)
+cur = conn.cursor()
+
+##date_time要改成你的table name
+sql = f'''SELECT * FROM date_time WHERE device_uuid= %s AND generated_time BETWEEN %s AND %s'''
+
 
 @data_router.get(
         "/calculate/test",
@@ -20,17 +27,19 @@ end_date = datetime(2023, 1, 9, 23, 59, 59)  # 包含秒信息的结束日期时
         description="get pre_process data",
         responses={200: Response.OK.doc, 400: Response.BAD_REQUEST.doc},
         )
-def pre_process_data(db: Session = Depends(get_db)):
-    uuid_example = "0bd0c50a-7847-4456-ba61-8e62a8af6f3b"
-    data_from_db = db.query(Electricity_Data).filter(
-        and_(
-            Electricity_Data.device_uuid == uuid_example,
-            Electricity_Data.generated_time >= start_date,
-            Electricity_Data.generated_time <= end_date
-        )
-    ).all()
-    data_dict = [{'device_uuid': item.device_uuid, 'generated_time': item.generated_time, 'normal_usage': item.normal_usage} for item in data_from_db]
-    df = pd.DataFrame(data_dict)
+def pre_process_data(db: Session = Depends(get_db), uuid_example: str = "0bd0c50a-7847-4456-ba61-8e62a8af6f3b"):
+    cur.execute(sql,(uuid_example, start_date, end_date,))
+    data_from_db = cur.fetchall()
+
+    mapped_data = [
+        {
+            "device_uuid": item[0],
+            "generated_time": item[1],
+            "normal_usage": item[2]
+        }
+        for item in data_from_db
+    ]
+    df = pd.DataFrame(mapped_data)
 
     # 3. 對 DataFrame 進行處理
     df['generated_time'] = pd.to_datetime(df['generated_time'])
@@ -43,8 +52,7 @@ def pre_process_data(db: Session = Depends(get_db)):
     df_hourly['hourly_usage'] = df_hourly['normal_usage'].diff()
     df_hourly['hourly_usage'] = df_hourly['hourly_usage'].round(2)
     processed_data = df_hourly
-    # 5. 返回處理後的結果（您可以根據需要返回 df_hourly 或其他格式的數據）
-    # processed_data.to_csv('processed_data.csv', index=True)
+
     return processed_data
 
 @data_router.get(
@@ -54,15 +62,16 @@ def pre_process_data(db: Session = Depends(get_db)):
         description="get electricity fee",
         responses={200: Response.OK.doc, 400: Response.BAD_REQUEST.doc},
         )
-def calculate_electricity_fee(db: Session = Depends(get_db)):
-    df = pre_process_data(db)
+def calculate_electricity_fee(db: Session = Depends(get_db), uuid_example: str = "0bd0c50a-7847-4456-ba61-8e62a8af6f3b"):
+    df = pre_process_data(db, uuid_example)
     summer_peak_usage = df[(df['is_summer'] == 'summer') & (df['time_slot_type2'] == 'Weekday 9:00-24:00')]['hourly_usage'].sum()
     summer_off_peak_usage = df[(df['is_summer'] == 'summer') & (df['time_slot_type2'] != 'Weekday 9:00-24:00')]['hourly_usage'].sum()
     non_summer_peak_usage = df[(df['is_summer'] == 'non-summer') & (df['time_slot_type2'] == 'Weekday 6:00-11:00 14:00-24:00')]['hourly_usage'].sum()
     non_summer_off_peak_usage = df[(df['is_summer'] == 'non-summer') & (df['time_slot_type2'] != 'Weekday 6:00-11:00 14:00-24:00')]['hourly_usage'].sum()
 
     # 計算電費類型1
-    bill_type1 = calculate_electricity_bill_type1(summer_peak_usage, summer_off_peak_usage)
+    bill_type1 = (calculate_electricity_bill_type1(summer_peak_usage, summer_off_peak_usage)+
+                calculate_electricity_bill_type1(non_summer_peak_usage, non_summer_off_peak_usage))
 
     # 計算電費類型2
     bill_type2 = (calculate_electricity_bill_type2(summer_peak_usage, summer_off_peak_usage, True) + 
@@ -80,10 +89,15 @@ def calculate_electricity_fee(db: Session = Depends(get_db)):
                   calculate_electricity_bill_type3(non_summer_peak_usage, non_summer_off_peak_usage, non_summer_semi_peak_usage, False))
 
     result_json = {
+        # "summer_off_peak_usage" : summer_off_peak_usage,    
+        # "summer_peak_usage" : summer_peak_usage,
         "bill_type1": bill_type1,
         "bill_type2": bill_type2,
         "bill_type3": bill_type3
     }
 
     return result_json
+
+if __name__ == "__main__":
+    print(calculate_electricity_fee())
    
