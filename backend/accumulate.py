@@ -28,6 +28,6 @@ def accumulate_electricity(start_time: str = '1970-01-26 09:00:00', end_time: st
         raise HTTPException(status_code=400, detail=f"An error occurred: {str(e)}")
 
 if __name__ == "__main__":
-    start_time = '1970-01-26 01:00:00'
+    start_time = '1970-01-26 09:00:00'
     end_time = '1970-01-27 09:00:00'
     print(accumulate_electricity(start_time=start_time, end_time=end_time))
