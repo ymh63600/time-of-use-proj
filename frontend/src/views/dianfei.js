@@ -129,18 +129,17 @@ const Dianfei = (props) => {
             <span>上個月電費方案估價：</span>
             <br></br>
           </span>
-        </div>
-        <div className="dianfei-container3">
-
           <button type="button" className="dianfei-button button">
-            <Link to="/shisuan" className="dianfei-navlink">
+            <Link to="/shisuan">
               <img
                 alt="image"
                 src="/shisuan-1500h.png"
-                className="dianfei-image7"
+                className="dianfei-image6"
               />
             </Link>
           </button>
+        </div>
+        <div className="dianfei-container3">
           <LineChart
             width={500}
             height={300}
