@@ -33,10 +33,10 @@ const Shisuan = (props) => {
       });
       setBill(response.data)
       console.log(response.data);
-      alert('File uploaded successfully!');
+      toast('File uploaded successfully!');
     } catch (error) {
       console.error(error);
-      alert('Error uploading file');
+      toast('Error uploading file');
     }
   };
   return (
@@ -67,7 +67,7 @@ const Shisuan = (props) => {
         </div>
         
         <div className="shisuan-container3">
-          <span className="shisuan-text05">{bill.usage}</span>
+          <span className="shisuan-text05">{bill.total_usage}</span>
           <img
             alt="image"
             src="/select%20blank-1500h.png"
@@ -99,12 +99,12 @@ const Shisuan = (props) => {
             <br></br>
             <span>（三段式）</span>
           </span>
-          <span className="shisuan-text15">{bill.bill_type1}</span>
+          <span className="shisuan-text15">{bill.type1}</span>
           <span className="shisuan-text16">
-            <span>{bill.bill_type2}</span>
+            <span>{bill.type2}</span>
             <br></br>
           </span>
-          <span className="shisuan-text19">{bill.bill_type3}</span>
+          <span className="shisuan-text19">{bill.type3}</span>
           <span className="shisuan-text20">用電量：</span>
         </div>
       </div>

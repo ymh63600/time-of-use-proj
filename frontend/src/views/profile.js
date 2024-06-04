@@ -39,7 +39,7 @@ const Profile = (props) => {
     event.preventDefault()
     const token=localStorage.getItem("auth_token")
     await axios.patch("/user/",getForm,{headers:{Authorization:token}}).then((response)=>{
-        toast.success(response.data.detail)
+        toast.success("success!")
         history.push("/profile")  
         console.log(response)
     }).catch((error)=>{

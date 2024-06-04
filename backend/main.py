@@ -14,7 +14,7 @@ from user_router import user_router
 from limit_router import limit_router
 from calculate import data_router
 from electricity import electricity_router
-
+from upload_and_cal import shisuan_router
 
 origins=["http://localhost:3000"]
 #origins=["*"]
@@ -23,8 +23,8 @@ app.include_router(admin_router)
 app.include_router(password_router)
 app.include_router(user_router)
 app.include_router(data_router)
-
 app.include_router(limit_router)
+app.include_router(shisuan_router)
 app.include_router(electricity_router)
 app.add_middleware(CORSMiddleware,allow_origins=origins,allow_credentials=True,allow_methods=["*"],allow_headers=["*"])
 
@@ -33,7 +33,7 @@ def read_root():
     return {"Hello": "World"}
 
 @app.post(
-    "/login",
+    "/login/",
     tags=["Login"],
     summary="return jwt",
     description="passing correct username and password of account will return jwt",

@@ -30,7 +30,7 @@ const Login = (props) => {
   const onSubmitHandler= async(event)=>{
     event.preventDefault()
     console.log(loginForm)
-    await axios.post("/login",loginForm).then((response)=>{
+    await axios.post("/login/",loginForm).then((response)=>{
         console.log(response)
         localStorage.setItem("auth_token",response.data.token)
         localStorage.setItem("is_Admin",response.data.Admin)

@@ -1,17 +1,24 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File,APIRouter
 import pandas as pd
 from config import Response
+from io import StringIO
+import csv
+shisuan_router = APIRouter()
 
-app = FastAPI()
-
-@app.post(
+@shisuan_router.post(
         "/uploadcsv/",
         tags=["Data"],
         summary="upload csv file",
         description="upload csv file",
         responses={200: Response.OK.doc, 400: Response.BAD_REQUEST.doc},)
-def create_upload_file(file: UploadFile = File(...)):
-    df, first_date, last_date = convert_file(file)
+async def create_upload_file(file: UploadFile = File(...)):
+    
+    contents = await file.read()
+    s = str(contents, 'utf-8')
+    data = StringIO(s)
+    df = pd.read_csv(data)
+    
+    df, first_date, last_date = convert_file(df)
     
     summer_peak_usage = df[(df['is_summer'] == 'summer') & (df['time_slot_type2'] == 'Weekday 9:00-24:00')]['hourly_usage'].sum()
     summer_off_peak_usage = df[(df['is_summer'] == 'summer') & (df['time_slot_type2'] != 'Weekday 9:00-24:00')]['hourly_usage'].sum()
@@ -128,8 +135,9 @@ def categorize_time_slot_type3(row):
             return 'Weekend'
 
 # Function to convert each file
-def convert_file(file: UploadFile):
-    df = pd.read_csv(file)
+def convert_file(df):
+    
+
     df['generated_time'] = pd.to_datetime(df['generated_time'])
 
     df['is_summer'] = df['generated_time'].apply(lambda x: 'summer' if x.month >= 6 and x.month <= 9 else 'non-summer')

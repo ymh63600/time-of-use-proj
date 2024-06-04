@@ -38,7 +38,7 @@ const Create = (props) => {
       const token=localStorage.getItem("auth_token")
       console.log(formRegister)
       await axios.post("/user/",formRegister,{headers:{Authorization:token}}).then((response)=>{
-        toast.success(response.data.detail)  
+        toast.success("success!")  
         console.log(response)
         localStorage.setItem("auth_token",response.data.token)
           

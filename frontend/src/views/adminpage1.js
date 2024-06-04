@@ -47,7 +47,7 @@ const Adminpage1 = (props) => {
     const token=localStorage.getItem("auth_token")
     const is_Admin=localStorage.getItem("is_Admin")
     await axios.post("/admin/",getForm,{headers:{Authorization:token,is_Admin:is_Admin,'Content-Type':'application/x-www-form-urlencoded'}}).then((response)=>{
-      toast.success(response.data.detail)
+      toast.success("success!")
       console.log(response)
       setUser(response.data)
     }).catch((error)=>{

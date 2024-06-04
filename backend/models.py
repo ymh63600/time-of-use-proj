@@ -25,7 +25,7 @@ class User(Base):
     last_login=Column(sa.types.DateTime,nullable=True)
     daylimit=Column(sa.INT,nullable=True)
     monthlimit=Column(sa.INT,nullable=True)
-    
+    period= Column(sa.types.DateTime,default="2022-01-01 00:00:00")
 
 class UpdatePassword(BaseModel):
     current_password: str

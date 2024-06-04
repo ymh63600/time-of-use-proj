@@ -7,6 +7,8 @@ from models import User,Electricity_Data
 from fastapi.responses import JSONResponse
 from jose import jwt
 from config import Config
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
 
 user_router = APIRouter()
 
@@ -23,10 +25,14 @@ async def get_user(
     user: User = (
         db.query(User).filter(User.username == current_user).first()
     )
+    start_date = user.period.strftime("%Y/%m/%d")
+    end_date = user.period + relativedelta(years=1)
     if user:
             user_data = {
             "username": user.username,
             "electricity_meter":user.electricity_meter,
+            "start_date" : start_date,
+            "end_date" : end_date,
             }
             return user_data
     raise HTTPException(status_code=400, detail="User not found")
@@ -120,6 +126,7 @@ async def update_user(request:Request,
     
     if "application/json" in content_type:
         data = await request.json()
+        period = data.get("period",None)
         electricity_meter = data.get("electricity_meter",None)
         
     user: User = (db.query(User).filter(User.username == current_user).first())
@@ -130,6 +137,12 @@ async def update_user(request:Request,
         
     if electricity_meter is not None:
         user.electricity_meter=electricity_meter
+    if period is not None:
+
+        date_obj = datetime.strptime(period, "%Y/%m/%d")
+        formatted_date = date_obj.strftime("%Y-%m-%d %H:%M:%S")
+
+        user.period=formatted_date
     db.commit()
     db.close()
     return JSONResponse({"message": "User data updated successfully"})
@@ -146,5 +159,7 @@ async def update_user(request:Request,
 async def resend_email(user: str = Depends(verify_token)):
     send_email(user,"create")
     return {"Resend email"}
+
+
 
 # uuid 0bd0c50a-7847-4456-ba61-8e62a8af6f3b

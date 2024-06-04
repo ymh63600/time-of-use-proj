@@ -16,7 +16,7 @@ const Verification = (props) => {
     const token=props.match.params.token
     await axios.get("/user/verification/"+token).then((response)=>{
         console.log(response)
-        toast.success(response.data.detail)
+        toast.success("success!")
     }).catch((error)=>{
         console.log(error)
         toast.error(error.response.data.detail);
