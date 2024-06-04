@@ -10,14 +10,16 @@ app = FastAPI()
         summary="upload csv file",
         description="upload csv file",
         responses={200: Response.OK.doc, 400: Response.BAD_REQUEST.doc},)
-def create_upload_file(file: UploadFile = File(...), start_time: str = None, end_time: str = None):
-    df = convert_file(file, start_time, end_time)
+def create_upload_file(file: UploadFile = File(...)):
+    df, first_date, last_date = convert_file(file)
     
     summer_peak_usage = df[(df['is_summer'] == 'summer') & (df['time_slot_type2'] == 'Weekday 9:00-24:00')]['hourly_usage'].sum()
     summer_off_peak_usage = df[(df['is_summer'] == 'summer') & (df['time_slot_type2'] != 'Weekday 9:00-24:00')]['hourly_usage'].sum()
     non_summer_peak_usage = df[(df['is_summer'] == 'non-summer') & (df['time_slot_type2'] == 'Weekday 6:00-11:00 14:00-24:00')]['hourly_usage'].sum()
     non_summer_off_peak_usage = df[(df['is_summer'] == 'non-summer') & (df['time_slot_type2'] != 'Weekday 6:00-11:00 14:00-24:00')]['hourly_usage'].sum()
     
+    total_usage = summer_peak_usage + summer_off_peak_usage + non_summer_peak_usage + non_summer_off_peak_usage
+
     bill_type1 = (calculate_electricity_bill_type1(summer_peak_usage, summer_off_peak_usage)+
                 calculate_electricity_bill_type1(non_summer_peak_usage, non_summer_off_peak_usage))
 
@@ -34,12 +36,11 @@ def create_upload_file(file: UploadFile = File(...), start_time: str = None, end
     bill_type3 = (calculate_electricity_bill_type3(summer_peak_usage, summer_off_peak_usage, summer_semi_peak_usage, True) + 
                   calculate_electricity_bill_type3(non_summer_peak_usage, non_summer_off_peak_usage, non_summer_semi_peak_usage, False))
     
-
-    print("原本電價:" ,bill_type1)
-    print("二段式電費試算價格:" ,bill_type2)
-    print("三段式電費試算價格:", bill_type3)
+    # print("原本電價:" ,bill_type1)
+    # print("二段式電費試算價格:" ,bill_type2)
+    # print("三段式電費試算價格:", bill_type3)
     
-    return {"usage":usage,"type1": bill_type1, "type2": bill_type2, "type3": bill_type3}
+    return {"total_usage": total_usage, "type1": bill_type1, "type2": bill_type2, "type3": bill_type3, "first_date": first_date, "last_date": last_date}
 
 def calculate_electricity_bill_type1(summer_usage, non_summer_usage): 
     total = summer_usage + non_summer_usage
@@ -127,13 +128,9 @@ def categorize_time_slot_type3(row):
             return 'Weekend'
 
 # Function to convert each file
-def convert_file(file: UploadFile, start_time: str, end_time: str):
+def convert_file(file: UploadFile):
     df = pd.read_csv(file)
-    
-    # Convert the 'generated_time' column to datetime
     df['generated_time'] = pd.to_datetime(df['generated_time'])
-    # Select data between start_time and end_time
-    df = df[(df['generated_time'] >= start_time) & (df['generated_time'] <= end_time)]
 
     df['is_summer'] = df['generated_time'].apply(lambda x: 'summer' if x.month >= 6 and x.month <= 9 else 'non-summer')
     df['time_slot_type2'] = df.apply(categorize_time_slot_type2, axis=1)
@@ -145,13 +142,15 @@ def convert_file(file: UploadFile, start_time: str, end_time: str):
     # Calculate the difference in normal_usage between consecutive hours
     df_hourly['hourly_usage'] = df_hourly['normal_usage'].diff()
     df_hourly['hourly_usage'] = df_hourly['hourly_usage'].round(5)
+
+    # Get the first and last date
+    first_date = df['generated_time'].iloc[0].date().strftime('%Y-%m-%d')
+    last_date = df['generated_time'].iloc[-1].date().strftime('%Y-%m-%d')
     
-    return df_hourly
+    return df_hourly, first_date, last_date
 
 if __name__ == "__main__":
-    file_path = r'dataset\0bd0c50a-7847-4456-ba61-8e62a8af6f3b.csv'
-    start_time = '2022-05-01 00:00:00'
-    end_time = '2022-05-31 23:59:59'
+    file_path = r'test_upload.csv'
 
     with open(file_path, "rb") as file:
-        create_upload_file(file=file, start_time=start_time, end_time=end_time)
+        print(create_upload_file(file=file))
