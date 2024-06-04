@@ -150,7 +150,7 @@ def convert_file(file: UploadFile):
     return df_hourly, first_date, last_date
 
 if __name__ == "__main__":
-    file_path = r'test_upload.csv'
+    file_path = r'calculate_data/test_upload.csv'
 
     with open(file_path, "rb") as file:
         print(create_upload_file(file=file))
