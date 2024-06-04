@@ -7,17 +7,18 @@ from models import *
 from datetime import datetime
 from calculate_data.bill_type import *
 import psycopg2
+from utility import verify_token
 
 data_router = APIRouter()
 
 start_date = datetime(2022, 5, 1, 0, 0, 0)  # 包含秒信息的起始日期时间
 end_date = datetime(2022, 5, 30, 23, 59, 59)  # 包含秒信息的结束日期时间
 
-conn = psycopg2.connect(Config.DB_URL)
+conn = psycopg2.connect(user="admin", password="admin", host="localhost", port="5432")
 cur = conn.cursor()
 
 ##date_time要改成你的table name
-sql = f'''SELECT * FROM date_time WHERE device_uuid= %s AND generated_time BETWEEN %s AND %s'''
+sql = f'''SELECT * FROM data_time WHERE device_uuid= %s AND generated_time BETWEEN %s AND %s'''
 
 
 @data_router.get(
@@ -27,10 +28,9 @@ sql = f'''SELECT * FROM date_time WHERE device_uuid= %s AND generated_time BETWE
         description="get pre_process data",
         responses={200: Response.OK.doc, 400: Response.BAD_REQUEST.doc},
         )
-def pre_process_data(db: Session = Depends(get_db), uuid_example: str = "0bd0c50a-7847-4456-ba61-8e62a8af6f3b"):
-    cur.execute(sql,(uuid_example, start_date, end_date,))
+def pre_process_data(uuid : str,db: Session = Depends(get_db)):
+    cur.execute(sql,(uuid, start_date, end_date,))
     data_from_db = cur.fetchall()
-
     mapped_data = [
         {
             "device_uuid": item[0],
@@ -62,8 +62,11 @@ def pre_process_data(db: Session = Depends(get_db), uuid_example: str = "0bd0c50
         description="get electricity fee",
         responses={200: Response.OK.doc, 400: Response.BAD_REQUEST.doc},
         )
-def calculate_electricity_fee(db: Session = Depends(get_db), uuid_example: str = "0bd0c50a-7847-4456-ba61-8e62a8af6f3b"):
-    df = pre_process_data(db, uuid_example)
+def calculate_electricity_fee(db: Session = Depends(get_db),user: str = Depends(verify_token)):
+    user: User = (
+        db.query(User).filter(User.username == user).first()
+    )
+    df = pre_process_data(user.electricity_meter,db)
     summer_peak_usage = df[(df['is_summer'] == 'summer') & (df['time_slot_type2'] == 'Weekday 9:00-24:00')]['hourly_usage'].sum()
     summer_off_peak_usage = df[(df['is_summer'] == 'summer') & (df['time_slot_type2'] != 'Weekday 9:00-24:00')]['hourly_usage'].sum()
     non_summer_peak_usage = df[(df['is_summer'] == 'non-summer') & (df['time_slot_type2'] == 'Weekday 6:00-11:00 14:00-24:00')]['hourly_usage'].sum()

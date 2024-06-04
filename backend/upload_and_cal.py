@@ -17,7 +17,7 @@ def create_upload_file(file: UploadFile = File(...), start_time: str = None, end
     summer_off_peak_usage = df[(df['is_summer'] == 'summer') & (df['time_slot_type2'] != 'Weekday 9:00-24:00')]['hourly_usage'].sum()
     non_summer_peak_usage = df[(df['is_summer'] == 'non-summer') & (df['time_slot_type2'] == 'Weekday 6:00-11:00 14:00-24:00')]['hourly_usage'].sum()
     non_summer_off_peak_usage = df[(df['is_summer'] == 'non-summer') & (df['time_slot_type2'] != 'Weekday 6:00-11:00 14:00-24:00')]['hourly_usage'].sum()
-
+    
     bill_type1 = (calculate_electricity_bill_type1(summer_peak_usage, summer_off_peak_usage)+
                 calculate_electricity_bill_type1(non_summer_peak_usage, non_summer_off_peak_usage))
 
@@ -33,12 +33,13 @@ def create_upload_file(file: UploadFile = File(...), start_time: str = None, end
 
     bill_type3 = (calculate_electricity_bill_type3(summer_peak_usage, summer_off_peak_usage, summer_semi_peak_usage, True) + 
                   calculate_electricity_bill_type3(non_summer_peak_usage, non_summer_off_peak_usage, non_summer_semi_peak_usage, False))
+    
 
     print("原本電價:" ,bill_type1)
     print("二段式電費試算價格:" ,bill_type2)
     print("三段式電費試算價格:", bill_type3)
     
-    return {"type1": bill_type1, "type2": bill_type2, "type3": bill_type3}
+    return {"usage":usage,"type1": bill_type1, "type2": bill_type2, "type3": bill_type3}
 
 def calculate_electricity_bill_type1(summer_usage, non_summer_usage): 
     total = summer_usage + non_summer_usage
