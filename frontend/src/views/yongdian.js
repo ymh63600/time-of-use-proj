@@ -171,7 +171,7 @@ const Yongdian = (props) => {
               <img
                 src="/frontend%20web%20(7)-1000h.png"
                 alt="image"
-                className="yongdian-image4"
+                className="yongdian-image7"
               />
             </Link>
           </button>          <form onSubmit={onSubmitHandler}>
