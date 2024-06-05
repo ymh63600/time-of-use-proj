@@ -166,7 +166,15 @@ const Yongdian = (props) => {
               />
             </Link>
           </button>
-          <form onSubmit={onSubmitHandler}>
+          <button type="button" className="yongdian-button5 button">
+            <Link to="/nilm" className="yongdian-navlink1">
+              <img
+                src="/frontend%20web%20(7)-1000h.png"
+                alt="image"
+                className="yongdian-image4"
+              />
+            </Link>
+          </button>          <form onSubmit={onSubmitHandler}>
             <input
               type="text"
               placeholder={user.start_date}

@@ -278,10 +278,13 @@
   background-color: var(--dl-color-gray-white);
 }
 .yongdian-image4 {
-  left: auto;
+  left: 50%;
   width: 20vh;
+  z-index: 100;
   position: absolute;
   object-fit: cover;
+  margin-left: 37vh;
+  text-decoration: none;
 }
 .yongdian-navlink2 {
   z-index: 100;
@@ -401,7 +404,9 @@
     left: auto;
   }
   .yongdian-image4 {
-    width: 0;
+    left: auto;
+    width: 15vh;
+    margin: 0;
   }
 }
 @media(max-width: 767px) {
