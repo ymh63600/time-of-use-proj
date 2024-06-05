@@ -1,11 +1,20 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-
+import React,{useEffect,useState} from 'react'
+import axios from "axios"
 import { Helmet } from 'react-helmet'
+import { Link } from 'react-router-dom'
 
 import './nilm.css'
 
 const Nilm = (props) => {
+  const [usage,setUsage]=useState({})
+    useEffect(()=>{
+        axios.get("http://localhost:8000/accumulate/").then((response)=>{
+            console.log(response)
+            setUsage(response.data)
+        }).catch((error)=>{
+            console.log(error.response.data.detail)
+        })
+    },[])
   return (
     <div className="nilm-container">
       <Helmet>
@@ -15,60 +24,60 @@ const Nilm = (props) => {
       <div className="nilm-container1">
         <div className="nilm-container2">
           <div className="nilm-container3">
-            <img
+          <img
               alt="image"
-              src="/external/temp%20(8)-1500w-1500w.png"
+              src="/temp%20(8)-1500w.png"
               className="nilm-image pic"
             />
             <span className="nilm-text fenzhong">
-              <span>14min(s)</span>
+              <span>{usage.sockets}min(s)</span>
               <br></br>
             </span>
             <img
               alt="image"
-              src="/external/temp%20(4)-1500w-1500w.png"
+              src="/temp%20(4)-1500w.png"
               className="nilm-image1 pic"
             />
             <span className="nilm-text03 fenzhong">
-              <span>20min(s)</span>
+              <span>{usage.microwave}min(s)</span>
               <br></br>
             </span>
             <img
               alt="image"
-              src="/temp%20(11)-1500h.png"
+              src="/temp%20(11).png"
               className="nilm-image2 pic"
             />
             <span className="nilm-text06 fenzhong">
-              <span>46min(s)</span>
+              <span>{usage.light}min(s)</span>
               <br></br>
             </span>
           </div>
           <div className="nilm-container4">
             <img
               alt="image"
-              src="/external/temp%20(5)-1500w-1500w.png"
+              src="/temp%20(5)-1500w.png"
               className="nilm-image3 pic"
             />
             <span className="nilm-text09 fenzhong">
-              <span>60min(s)</span>
+              <span>{usage.fridge}min(s)</span>
               <br></br>
             </span>
             <img
               alt="image"
-              src="/external/temp%20(10)-1500w-1500w.png"
+              src="/temp%20(10)-1500w.png"
               className="nilm-image4 pic"
             />
             <span className="nilm-text12 fenzhong">
-              <span>35min(s)</span>
+              <span>{usage.electric_oven}min(s)</span>
               <br></br>
             </span>
             <img
               alt="image"
-              src="/external/temp%20(1)-1500w-1500w.png"
+              src="/temp%20(1)-1500w.png"
               className="nilm-image5 pic"
             />
             <span className="nilm-text15 fenzhong">
-              <span>31min(s)</span>
+              <span>{usage.dish_washer}min(s)</span>
               <br></br>
             </span>
           </div>

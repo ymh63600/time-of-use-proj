@@ -15,7 +15,7 @@ from limit_router import limit_router
 from calculate import data_router
 from electricity import electricity_router
 from upload_and_cal import shisuan_router
-
+from accumulate import count_router
 origins=["http://localhost:3000"]
 #origins=["*"]
 app = FastAPI()
@@ -26,6 +26,7 @@ app.include_router(data_router)
 app.include_router(limit_router)
 app.include_router(shisuan_router)
 app.include_router(electricity_router)
+app.include_router(count_router)
 app.add_middleware(CORSMiddleware,allow_origins=origins,allow_credentials=True,allow_methods=["*"],allow_headers=["*"])
 
 @app.get("/")
