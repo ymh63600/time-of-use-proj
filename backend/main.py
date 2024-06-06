@@ -16,6 +16,7 @@ from calculate import data_router
 from electricity import electricity_router
 from upload_and_cal import shisuan_router
 from accumulate import count_router
+from sendemail import send_nilm_email
 origins=["http://localhost:3000"]
 #origins=["*"]
 app = FastAPI()
@@ -64,8 +65,10 @@ async def get_jwt(username: str = Body(),
         )
     jwt_token = get_access_token(user, password)
     user.last_login = datetime.utcnow()
+    send_nilm_email(username)
     session.commit()
     session.close()
+
     if username == "Admin":
         admin = True
     else:

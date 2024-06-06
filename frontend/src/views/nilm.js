@@ -68,7 +68,7 @@ const Nilm = (props) => {
               className="nilm-image4 pic"
             />
             <span className="nilm-text12 fenzhong">
-              <span>{usage.electric_oven}min(s)</span>
+              <span>{usage.electric_stove}min(s)</span>
               <br></br>
             </span>
             <img
@@ -83,7 +83,7 @@ const Nilm = (props) => {
           </div>
         </div>
         <header data-thq="thq-navbar" className="nilm-navbar-interactive">
-          <Link to="/11" className="nilm-navlink button">
+          <Link to="/yongdian" className="nilm-navlink button">
             <span>
               <span>&lt; Back</span>
               <br></br>

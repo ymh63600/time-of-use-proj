@@ -7,7 +7,7 @@ from config import Config
 import smtplib
 import pandas as pd
 
-def send_nilm_email(user: str,type: str):
+def send_nilm_email(user: str):
     # token = jwt.encode(
     #     {
     #         "sub": user,
@@ -199,5 +199,5 @@ def bill_3_advice(df, appliances, start_date, end_date):
 
 
 if __name__ == "__main__":
-    send_nilm_email("ymh5916@gmail.com", "type")
+    send_nilm_email("ymh5916@gmail.com")
     # get_advice()
