@@ -199,5 +199,5 @@ def bill_3_advice(df, appliances, start_date, end_date):
 
 
 if __name__ == "__main__":
-    send_nilm_email("esthersoon2002@gmail.com", "type")
+    send_nilm_email("ymh5916@gmail.com", "type")
     # get_advice()
