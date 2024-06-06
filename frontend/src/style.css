@@ -77,7 +77,21 @@
   display: flex !important;
   transform: none !important;
 }
-
+.fenzhong {
+  color: rgb(73, 104, 141);
+  margin: 20px 10px 20px 10px;
+  z-index: 100;
+  font-size: 5vh;
+  text-align: center;
+  font-family: "Comic Sans MS";
+  letter-spacing: 1vh;
+}
+.pic {
+  left: 25%;
+  width: 30vh;
+  position: relative;
+  object-fit: cover;
+}
 .Content {
   font-size: 16px;
   font-family: Inter;

@@ -250,16 +250,15 @@
   margin-left: 37vh;
   text-decoration: none;
 }
+
 .yongdian-button5 {
-  top: 45vh;
+  top: 84vh;
   left: 55%;
-  color: rgb(73, 104, 141);
-  z-index: 100;
+  color: transparent;
+  display: flex;
   position: absolute;
-  font-size: 2.2vh;
-  margin-left: 46vh;
   border-width: 0px;
-  text-decoration: underline;
+  flex-direction: row;
   background-color: transparent;
 }
 .yongdian-navbar-interactive {
@@ -406,8 +405,7 @@
     margin-left: 6vh;
   }
   .yongdian-navlink1 {
-    top: 84vh;
-    left: auto;
+    display: contents;
   }
   .yongdian-image4 {
     width: 0;
