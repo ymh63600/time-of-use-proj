@@ -19,7 +19,7 @@ def accumulate_electricity():
         # Select a specific time range
         df = df.loc[start_time:end_time]
 
-        df = df > 0
+        df = df > 0.015
         usage_time = df.sum() * 1  # Multiply by 1 minute because each row represents 1 minute
         print(usage_time)
         usage_time = usage_time.to_dict()
@@ -38,6 +38,6 @@ def accumulate_electricity():
 if __name__ == "__main__":
     start_time = '1970-01-26 09:00:00'
     end_time = '1970-01-27 09:00:00'
-    #print(accumulate_electricity(start_time=start_time, end_time=end_time))
+    # print(accumulate_electricity())
     import uvicorn
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)    
