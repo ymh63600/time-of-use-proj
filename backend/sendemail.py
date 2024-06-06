@@ -22,64 +22,61 @@ def send_nilm_email(user: str,type: str):
     content["from"] = "timeofuse114@gmail.com"
     content["to"] = user
     content["subject"] = "Nilm Advice" 
-
     template = Template(
-        """
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>NILM Advice</title>
-            <style>
-                body, html {
-                    margin: 0;
-                    padding: 0;
-                    width: 100%;
-                    height: 100%;
-                    font-family: Arial, sans-serif;
-                    background-color: #f4f4f4;
-                }
-                .container {
-                    width: 100%;
-                    height: 100%;
-                    background-color: #ffffff;
-                }
-                .header, .footer {
-                    text-align: left;
-                    width: 100%;
-                }
-                .header img, .footer img {
-                    width: 100%;
-                    max-width: 800px;
-                    height: auto;
-                }
-                .content {
-                    padding: 20px;
-                    text-align: left;
-                }
-                .content p {
-                    font-size: 1.2em;
-                    color: #49688D;
-                }
-            </style>
-        </head>
-        <body>
-            <div class="container">
-                <div class="header">
-                    <img src="https://i.ibb.co/1TCDKTS/frontend-web-1-copy.png" alt="Header Image">
-                </div>
-                <div class="content">
-                    <p>$advice</p>
-                </div>
-                <div class="footer">
-                    <img src="https://i.ibb.co/nsSCmkC/frontend-web-1-copy-2.png" alt="Footer Image">
-                </div>
-            </div>
-        </body>
-        </html>
-        """
-    )
+            f"""
+            <!DOCTYPE html>
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="color-scheme" content="normal">
+<meta name="supported-color-schemes" content="normal">
+<title>用電小妙招</title>
+</head>
+<body class="body" >
+    <!-- email content in here -->
+    <table role="presentation" align="center" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tr>
+			<td valign="top" bgcolor="#d5f8f4">
+			<div class="over-mob"  style="max-height:340px; margin: 0 auto; text-align: center; ">
+				<img class="reset" src="https://i.ibb.co/1TCDKTS/frontend-web-1-copy.png" width="800" height="60" border="0" alt="" style="vertical-align: middle;"/>
+			</div>
+			<!-- TEXT BLOCK START -->
+			<table role="presentation" class="faux-absolute reset" align="center" border="0" cellpadding="0" cellspacing="0" width="707" style="position:relative; opacity:0.999;">
+			<tr >
+			<td valign="top" >
+					<table role="presentation" class="hero-textbox" border="0" cellpadding="0" cellspacing="0" width="80%" bgcolor="#FFFFFF" align="center" style="margin: 0 0 0 112px ;" >
+						<tr >
+							<td valign="top" style="padding: 20px; " >
+								<br >
+								<p class="left" style="margin: 0; font-family:sans-serif; font-size:1.5em; color:#49688D; mso-line-height-rule: exactly; line-height: 1.5; text-align:center;">
+									$advice
+								</p >
+							</td >
+						</tr >
+								</table >				
+							</td>
+						</tr>
+						<tr>
+						</tr>
+					</table>
+        <div class="over-mob"  style="max-height:340px; margin: 0 auto; text-align: center; ">
+				<img class="reset" src="https://i.ibb.co/nsSCmkC/frontend-web-1-copy-2.png" width="800" height="85"     border="0" alt="" style="vertical-align: middle;"/>
+			</div>
+				</td>
+			</tr>
+			</table>
+			<div style="height: 40px;"></div>
+			</td>
+		</tr>
+    </table>
+  </div>
+</body>
+</html>
+        """)
 
     advice = get_advice()
     print(advice)
@@ -110,7 +107,7 @@ def get_advice(filename: str = "1970-01-26_1970-01-28.csv"):
     # print(df.head())
     advice  = "二段式電價建議：\n"
     advice += bill_2_advice(df, appliances, "1970-01-26", "1970-01-27")
-    advice += "\n" + "="*50 + "\n\n"
+    advice += "\n" + "="*30 + "\n\n"
     advice += "三段式電價建議：\n"
     advice += bill_3_advice(df, appliances, "1970-01-26", "1970-01-27")
     
