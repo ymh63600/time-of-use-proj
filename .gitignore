@@ -1,11 +1,8 @@
-poetry.lock
-pyproject.toml
 **.pyc
-/frontend/node_modules/
 .DS_Store
 */.DS_Store
 __pycache__/
-/dataset/
+/dataset
 /timeSeries/data
 /backend/calculate_data/test_upload.csv
 /backend/nilm/data_h5
@@ -13,3 +10,6 @@ __pycache__/
 /backend/nilm/fetch_data/house_1
 /backend/nilm/pred_csv/
 /backend/config.py
+/frontend/node_modules/
+1-9 NILM poster.pdf
+1-9 NILM.pdf
