@@ -161,5 +161,3 @@ async def resend_email(user: str = Depends(verify_token)):
     return {"Resend email"}
 
 
-
-# uuid 0bd0c50a-7847-4456-ba61-8e62a8af6f3b

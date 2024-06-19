@@ -196,5 +196,6 @@ def send_email(user: str,type: str):
 
 
 if __name__ == "__main__":
-
-    send_email("ymh5916@gmail.com","find")
+    # use your email to test
+    email = ""
+    send_email(email,"find")
