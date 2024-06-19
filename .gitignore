@@ -5,6 +5,7 @@ pyproject.toml
 .DS_Store
 */.DS_Store
 __pycache__/
+/dataset/
 /timeSeries/data
 /backend/calculate_data/test_upload.csv
 /backend/nilm/data_h5
