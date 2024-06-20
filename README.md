@@ -9,3 +9,15 @@ reference:
 [nilmtk](https://github.com/nilmtk/nilmtk/blob/master/README.md)
 [nilmtk-contrib](https://github.com/nilmtk/nilmtk-contrib)
 
+# 合成資料
+裡面的code有一些是python2的語法，需要自己稍微修改
+
+github: [smartsim](https://github.com/sustainablecomputinglab/smartsim)
+
+生成出來的結果可以用nilmtk裡面的套件轉成 .h5 file，以便之後可以放到nilm裡面進行訓練
+
+ ```python
+from nilmtk.dataset_converters import convert_redd
+
+convert_redd(r'.\smartsim\redd\low_freq', r'house_1.h5')
+```
