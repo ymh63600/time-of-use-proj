@@ -6,7 +6,6 @@ __pycache__/
 /timeSeries/data
 /backend/calculate_data/test_upload.csv
 /backend/nilm/data_h5
-/backend/nilm/model/
 /backend/nilm/fetch_data/house_1
 /backend/nilm/pred_csv/
 /backend/config.py
